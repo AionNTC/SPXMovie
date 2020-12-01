@@ -1,0 +1,278 @@
+body {
+  font-family: 'Kanit', sans-serif;
+  background-color: #0f0f11;
+  margin: 0; }
+  body .wrapper {
+    width: 1290px;
+    margin: 0 auto; }
+  body .content {
+    margin-top: 60px; }
+    body .content:after {
+      content: "";
+      clear: both;
+      display: table; }
+    body .content .content-title {
+      margin-bottom: 40px;
+      vertical-align: bottom; }
+      body .content .content-title .title {
+        color: #fd9b38;
+        font-weight: bold;
+        font-size: 34px;
+        display: inline-block;
+        margin-right: 65px; }
+      body .content .content-title .filter {
+        display: inline-block;
+        font-size: 20px;
+        font-weight: lighter;
+        color: #ffffff;
+        position: relative;
+        margin-right: 18px;
+        cursor: pointer; }
+        body .content .content-title .filter.active:after, body .content .content-title .filter:hover:after {
+          background-color: #fd9b38;
+          content: "";
+          width: 100%;
+          height: 2px;
+          position: absolute;
+          left: 0; }
+    body .content .content-grid {
+      float: left;
+      width: 74%; }
+      body .content .content-grid .content-list {
+        display: flex;
+        flex-wrap: wrap; }
+        body .content .content-grid .content-list .card-content {
+          width: 310px;
+          height: 440px;
+          margin-bottom: 10px;
+          background-size: cover;
+          background-position: center center;
+          position: relative; }
+          body .content .content-grid .content-list .card-content:not(:nth-child(3n)) {
+            margin-right: 12px; }
+          body .content .content-grid .content-list .card-content .card-view {
+            top: 10px;
+            left: 8px;
+            position: absolute;
+            background-color: #0f0f11;
+            color: #ffffff;
+            padding: 4px 8px 4px 14px;
+            border-radius: 6px;
+            font-weight: bold; }
+          body .content .content-grid .content-list .card-content .card-quality {
+            top: 0;
+            right: 0;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-right: 46px solid #223f9a;
+            border-bottom: 46px solid transparent; }
+            body .content .content-grid .content-list .card-content .card-quality span {
+              color: #ffffff;
+              font-size: 10px;
+              transform: rotate(45deg);
+              display: block;
+              left: 26px;
+              position: absolute;
+              top: 7px; }
+          body .content .content-grid .content-list .card-content .card-description {
+            width: 100%;
+            position: absolute;
+            background: black;
+            background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0) 100%);
+            bottom: 0;
+            height: 30%;
+            color: #ffffff; }
+            body .content .content-grid .content-list .card-content .card-description .card-description-content {
+              bottom: 18px;
+              position: absolute;
+              width: 100%; }
+              body .content .content-grid .content-list .card-content .card-description .card-description-content .card-description-top {
+                padding: 0 6px;
+                display: block;
+                position: relative; }
+                body .content .content-grid .content-list .card-content .card-description .card-description-content .card-description-top:after {
+                  content: "";
+                  clear: both;
+                  display: table; }
+                body .content .content-grid .content-list .card-content .card-description .card-description-content .card-description-top .card-description-rate {
+                  top: 50%;
+                  transform: translateY(-50%);
+                  position: absolute;
+                  font-size: 12px; }
+                  body .content .content-grid .content-list .card-content .card-description .card-description-content .card-description-top .card-description-rate:before {
+                    content: "\2605";
+                    color: #ff9a36;
+                    padding-right: 2px; }
+                body .content .content-grid .content-list .card-content .card-description .card-description-content .card-description-top .card-description-type {
+                  float: right;
+                  font-weight: 300;
+                  background-color: #223f9a;
+                  padding: 0 8px;
+                  border-radius: 4px; }
+              body .content .content-grid .content-list .card-content .card-description .card-description-content .card-description-nema {
+                padding: 0 6px;
+                font-size: 18px;
+                font-weight: bold;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis; }
+      body .content .content-grid .content-pagination {
+        margin-top: 35px;
+        text-align: center; }
+        body .content .content-grid .content-pagination .pagination {
+          display: inline-block; }
+          body .content .content-grid .content-pagination .pagination:after {
+            content: "";
+            clear: both;
+            display: table; }
+          body .content .content-grid .content-pagination .pagination .pagination-button {
+            float: left;
+            margin: 0 2px;
+            color: #ffffff;
+            width: 40px;
+            padding: 8px 0;
+            text-decoration: none;
+            transition: background-color .3s;
+            background-color: #fd9b38;
+            font-weight: bold; }
+            body .content .content-grid .content-pagination .pagination .pagination-button.active {
+              background-color: #bcb1b5; }
+            body .content .content-grid .content-pagination .pagination .pagination-button.disable {
+              display: none; }
+            body .content .content-grid .content-pagination .pagination .pagination-button:hover:not(.active) {
+              background-color: #ddd; }
+    body .content .content-cate {
+      float: right;
+      width: 24%; }
+      body .content .content-cate .cate-group:not(:first-child) {
+        margin-top: 30px; }
+      body .content .content-cate .cate-group .cate-title {
+        padding: 14px 12px 12px;
+        color: #fd9b38;
+        font-size: 22px;
+        border: 4px solid #fd9b38;
+        margin-bottom: 16px; }
+      body .content .content-cate .cate-group .thumbnail-cate {
+        display: block; }
+        body .content .content-cate .cate-group .thumbnail-cate:not(:last-child) {
+          margin-bottom: 40px; }
+        body .content .content-cate .cate-group .thumbnail-cate:after {
+          content: "";
+          clear: both;
+          display: table; }
+        body .content .content-cate .cate-group .thumbnail-cate .thumbnail-text {
+          width: 70%;
+          float: right;
+          color: #9d9d9f;
+          font-size: 14px; }
+          body .content .content-cate .cate-group .thumbnail-cate .thumbnail-text .thumbnail-title {
+            font-size: 16px;
+            color: #223f9a; }
+          body .content .content-cate .cate-group .thumbnail-cate .thumbnail-text .thumbnail-rate::before {
+            content: "\2605";
+            color: #ff9a36; }
+      body .content .content-cate .cate-group .fullline-cate, body .content .content-cate .cate-group .halfline-cate {
+        display: block;
+        border: 1px solid #fd9b38;
+        color: #fd9b38;
+        font-size: 16px;
+        padding: 2px;
+        font-weight: 300;
+        position: relative;
+        text-decoration: none; }
+        body .content .content-cate .cate-group .fullline-cate:not(:last-child), body .content .content-cate .cate-group .halfline-cate:not(:last-child) {
+          margin-bottom: 5px; }
+        body .content .content-cate .cate-group .fullline-cate span, body .content .content-cate .cate-group .halfline-cate span {
+          position: absolute;
+          background-color: #fc9c38;
+          color: #f8f7fc;
+          font-weight: bold;
+          border-radius: 4px;
+          padding: 0 5px;
+          right: 2px; }
+      body .content .content-cate .cate-group .halfline-cate {
+        width: 47%;
+        float: left; }
+        body .content .content-cate .cate-group .halfline-cate:nth-child(even) {
+          float: right; }
+  body .web-description {
+    color: #ffffff;
+    padding: 220px 0; }
+    body .web-description .title {
+      color: #fd9b38;
+      font-weight: bold;
+      font-size: 34px;
+      margin-right: 65px; }
+
+header .logo-bar {
+  height: 73px;
+  padding: 15px 6px 18px; }
+  header .logo-bar img {
+    max-height: 74px; }
+header .menu-bar {
+  background-color: #fd9b38;
+  height: 80px;
+  margin-bottom: 8px; }
+  header .menu-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    float: left; }
+    header .menu-bar ul li {
+      display: inline-block;
+      padding: 25px 32px 24px;
+      cursor: pointer;
+      position: relative; }
+      header .menu-bar ul li.active a {
+        color: #ffffff; }
+      header .menu-bar ul li:hover:after {
+        background-color: #ffffff;
+        content: "";
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        border-radius: 50%;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%); }
+      header .menu-bar ul li a {
+        font-size: 20px;
+        font-weight: bold;
+        color: #3d3e42;
+        text-decoration: none; }
+  header .menu-bar .search {
+    width: 50%;
+    float: right;
+    height: 80px;
+    text-align: right;
+    cursor: pointer; }
+    header .menu-bar .search .fa-search {
+      color: #fd9b38;
+      background-color: #3d3e40;
+      padding: 22px 20px;
+      font-size: 36px; }
+
+footer {
+  border-top: 1px solid #ffffff; }
+  footer .wrapper {
+    padding: 26px;
+    color: #ffffff; }
+    footer .wrapper span {
+      color: #fd9b38; }
+
+#homepage .swiper-container .swiper-button-next, #homepage .swiper-container .swiper-button-prev {
+  display: none; }
+  @media (max-width: 1024) {
+    #homepage .swiper-container .swiper-button-next, #homepage .swiper-container .swiper-button-prev {
+      display: flex; } }
+#homepage .caption {
+  margin: 20px 0 25px;
+  color: #ffffff;
+  border: 2px solid #fd9b38;
+  text-align: center;
+  padding: 20px 5px 15px;
+  font-weight: 400; }
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,24 @@
+CRITICAL - 2020-12-04 01:42:08 --> syntax error, unexpected end of file
+#0 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/index.php', Array, true)
+#1 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(84): view('movie/index.php', Array)
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-12-04 01:48:10 --> syntax error, unexpected end of file
+#0 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/index.php', Array, true)
+#1 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(84): view('movie/index.php', Array)
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-12-04 01:51:11 --> syntax error, unexpected end of file
+#0 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/index.php', Array, true)
+#1 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(84): view('movie/index.php', Array)
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}

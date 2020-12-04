@@ -1,0 +1,11 @@
+CRITICAL - 2020-12-03 00:13:21 --> include(layouts/footer.php): failed to open stream: No such file or directory
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\index.php(445): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(layouts...', 'C:\\xampp\\htdocs...', 445, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\app\Views\index.php(445): include()
+#2 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('index.php', Array, true)
+#4 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(84): view('index.php', Array)
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#7 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}

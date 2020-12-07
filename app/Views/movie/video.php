@@ -1,28 +1,29 @@
 <section id="video">
     <div class="container">
-        <?php
+        <?
             if( !empty($adstop) ){
                 foreach($adstop as $ads){
         ?>
             <a href="#"><img src="https://dummyimage.com/1286x218/b8c200/000000&text=Ads"></a>
-        <?php
+        <?
                 }
             }
         ?>
     </div>
     <!-- <pre>
-        <?php
+        <?
             var_dump($videodata);
+            $url_name = urlencode(str_replace(' ', '-', $videodata['movie_thname']))
         ?>
     </pre> -->
     <div class="container">
         <div class="preview">
-            <div class="preview-image"><img src="<?php echo $videodata['movie_picture'] ?>" alt="<?php echo $videodata['movie_thname'] ?>"></div>
+            <div class="preview-image"><img src="<? echo $videodata['movie_picture'] ?>" alt="<? echo $videodata['movie_thname'] ?>"></div>
             <div class="preview-data">
-                <div class="preview-title"><?php echo $videodata['movie_thname'] ?></div>
-                <div class="preview-rate">MYMOVIELIST: <span><?php echo $videodata['movie_ratescore'] ?>/10</span></div>
-                <div class="preview-view">VIEW: <span><?php echo $videodata['movie_view'] ?></span></div>
-                <div class="preview-sound">SOUND: <span><?php echo $videodata['movie_sound'] ?></span></div>
+                <div class="preview-title"><? echo $videodata['movie_thname'] ?></div>
+                <div class="preview-rate">MYMOVIELIST: <span><? echo $videodata['movie_ratescore'] ?>/10</span></div>
+                <div class="preview-view">VIEW: <span><? echo $videodata['movie_view'] ?></span></div>
+                <div class="preview-sound">SOUND: <span><? echo $videodata['movie_sound'] ?></span></div>
                 <div class="preview-shared">SHARE: 
                     <a href="#"><i class="fab fa-facebook-square"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -30,7 +31,7 @@
                     <a href="#"><i class="fab fa-tumblr-square"></i></a>
                     <a href="#"><i class="fab fa-google-plus"></i></a>
                 </div>
-                <div class="preview-description"><?php echo $videodata['movie_des'] ?></div>
+                <div class="preview-description"><? echo $videodata['movie_des'] ?></div>
             </div>
         </div>
     </div>
@@ -41,32 +42,48 @@
                 <div class="title">
                     <i class="fas fa-film"></i> ตัวอย่างหนัง
                 </div>
-                <iframe width="100%" height="527" src="<?php echo $videodata['movie_preview'] ?>"></iframe>
+                <?
+                    $yb = explode('embed', $videodata['movie_preview']);
+                    if (count($yb) > 1) {
+                        $urlyb = "https://www.youtube.com/embed/" . $yb[1];
+                    } else {
+                        $urlyb = "https://www.youtube.com/embed/" . $yb[0];
+                    }
+
+                ?>
+                <iframe width="100%" height="527" src="<? echo $urlyb ?>"></iframe>
                 
                 <div class="title">
                     <i class="fas fa-scroll"></i> เรื่องย่อ
                 </div>
                 <div class="des">
-                    <?php echo $videodata['movie_des'] ?>
+                    <? echo $videodata['movie_des'] ?>
                 </div>
 
                 <div id="ads">
-                    <?php
+                    <?
                         if( !empty($adstop) ){
                             foreach($adstop as $ads){
                     ?>
                         <a href="#"><img src="https://dummyimage.com/1286x218/b8c200/000000&text=Ads"></a>
-                    <?php
+                    <?
                             }
                         }
                     ?>
                 </div>
 
-                <div class="des">
-                    <?php echo $videodata['movie_thname'] ?> <a href="#">สำรอง 1</a> <span>|</span> <a href="#">สำรอง 2</a> <span>|</span> <a href="#">สำรอง 3</a>
-                </div>
+                <?
+                    if( empty($videodata['name_ep']) ){
+                ?>
+                    <div class="des">
+                        <? echo $videodata['movie_thname'] ?> <a href="#">สำรอง 1</a> <span>|</span> <a href="#">สำรอง 2</a> <span>|</span> <a href="#">สำรอง 3</a>
+                    </div>
+                <?
+                    }
+                ?>
+
                 <div class="title white">
-                    <?php echo $videodata['movie_thname'] ?>
+                    <? echo $videodata['movie_thname'] ?>
                 </div>
 
                 <video src="#" width="100%" height="527"></video>
@@ -76,13 +93,36 @@
                     <button class="btn">แจ้งหนังเสีย</button>
                 </div>
 
+                <?
+                    if( !empty($videodata['name_ep']) ){
+                ?>
+                    <div class="title white text-center">
+                        <? echo $videodata['movie_thname'] ?>
+                    </div>
+
+                <?
+                        foreach ($videodata['epdata'] as $key => $val) { 
+                            $active = '';
+                            if($index==$key){
+                                $active = 'active';
+                            }
+                            $url_nameep = urlencode(str_replace(' ', '-', $videodata['name_ep'][$key]));
+                ?>
+                    <a class="ep-link" onclick="goEP('<?=$videodata['movie_id']?>','<?=$url_name?>','<?= trim($key) ?>','<?= $url_nameep ?>')" tabindex="-1">
+                        <span class="<?=$active?>"><?= $videodata['movie_thname'] . '-' . $videodata['name_ep'][$key] ?></span>
+                    </a>
+                <?
+                            }
+                    }
+                ?>
+
                 <div id="ads">
-                    <?php
+                    <?
                         if( !empty($adstop) ){
                             foreach($adstop as $ads){
                     ?>
                         <a href="#"><img src="https://dummyimage.com/1286x218/b8c200/000000&text=Ads"></a>
-                    <?php
+                    <?
                             }
                         }
                     ?>

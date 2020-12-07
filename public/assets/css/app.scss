@@ -473,6 +473,18 @@ footer {
                 }
             }
         }
+        
+        .ep-link {
+            text-align: center;
+            font-weight: 300;
+            display: block;
+            span {
+                cursor: pointer;
+            }
+            span.active, &:hover span {
+                color: #007bff;
+            }
+        }
 
         .cate-list {
             margin-top: 15px;

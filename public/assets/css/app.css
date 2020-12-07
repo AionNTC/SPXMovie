@@ -360,6 +360,14 @@ footer {
       border-radius: 10px; }
       #video .content-data .btn-group .btn:first-child {
         margin-right: 30px; }
+  #video .content-data .ep-link {
+    text-align: center;
+    font-weight: 300;
+    display: block; }
+    #video .content-data .ep-link span {
+      cursor: pointer; }
+    #video .content-data .ep-link span.active, #video .content-data .ep-link:hover span {
+      color: #007bff; }
   #video .content-data .cate-list {
     margin-top: 15px;
     font-weight: bold;

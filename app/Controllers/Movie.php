@@ -184,15 +184,14 @@ class Movie extends BaseController
 		
 		$chk_act = [
 			'home' => 'active',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => '',
-				'contract' => ''
+			'anime' => '',
+			'contract' => ''
 		];
-
 		$header_data = [
+			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
+			'searchUrl' => $this->searchUrl,
+			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
 			'setting' => $setting,
 			'list_category' => $list_category,
@@ -214,6 +213,7 @@ class Movie extends BaseController
 
 		echo view('templates/header.php', $header_data);
 		echo view('movie/video.php', $body_data);
+		echo view('movie/footer.php');
 		echo view('templates/footer.php');
 	}
 

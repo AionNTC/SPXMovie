@@ -58,7 +58,7 @@
                 <div class="filter active">ALL ANIME</div>
                 <div class="filter">TOP ANIME</div>
             </div>
-            <div class="content-grid">
+            <div class="content-data">
                 <div class="content-list">
                     <a href="#" class="card-content" style="background-image: url('https://dummyimage.com/310x440/ffffff')">
                         <div class="card-view">

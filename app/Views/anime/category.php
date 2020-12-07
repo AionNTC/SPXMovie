@@ -28,7 +28,7 @@
             <div class="content-title">
                 <div class="title">CATEGORY: ACTION</div>
             </div>
-            <div class="content-grid">
+            <div class="content-data">
                 <div class="content-list">
                     <a href="#" class="card-content" style="background-image: url('https://dummyimage.com/310x440/ffffff')">
                         <div class="card-view">

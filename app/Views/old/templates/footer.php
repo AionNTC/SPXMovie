@@ -47,6 +47,7 @@
     });
 
     function goView(id, name, type) {
+      alert(1211)
       countView(id);
 
       var url = '';

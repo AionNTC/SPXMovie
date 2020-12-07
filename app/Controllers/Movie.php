@@ -12,7 +12,7 @@ class Movie extends BaseController
 	public $path_ads = "";
 	public $mvbranch = 1;
 	public $anbranch = 2;
-	public $backURL = "http://localhost:9999/public/";
+	public $backURL = "http://localhost:1004/public/";
 	public $document_root = '';
 	public $path_thumbnail = "https://anime.vip-streaming.com/";
 	public $path_slide = "";
@@ -82,6 +82,7 @@ class Movie extends BaseController
 
 		echo view('templates/header.php', $header_data);
 		echo view('movie/index.php', $body_data);
+		echo view('movie/footer.php');
 		echo view('templates/footer.php');
 	}
 
@@ -114,15 +115,15 @@ class Movie extends BaseController
 
 		$chk_act = [
 			'home' => 'active',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => '',
-				'contract' => ''
+			'anime' => '',
+			'contract' => ''
 		];
 
 		$header_data = [
+			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
+			'searchUrl' => $this->searchUrl,
+			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
 			'setting' => $setting,
 			'list_category' => $list_category,
@@ -144,6 +145,7 @@ class Movie extends BaseController
 
 		echo view('templates/header.php', $header_data);
 		echo view('movie/video.php', $body_data);
+		echo view('movie/footer.php');
 		echo view('templates/footer.php');
 	}
 

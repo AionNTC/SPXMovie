@@ -23,7 +23,8 @@
 
     <title><?php echo $setting['setting_title']; ?></title>
 
-    <link rel="icon" type="image/png" href="<?= $path_setting . $setting['setting_icon'] ?>" />
+    <!-- <link rel="icon" type="image/png" href="<?= $path_setting . $setting['setting_icon'] ?>" /> -->
+    <link rel="icon" type="image/png" href="<?= $backURL . 'assets/img/logo.png' ?>" />
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -45,13 +46,14 @@
     ?>
 </head>
 
-<body id="homepage">
+<body>
 
     <header>
         <div class="logo-bar">
-            <div class="wrapper">
+            <div class="container">
                 <a href="<?php echo base_url() ?>">
-                 <img class="logo" src="<?= $path_setting . $setting['setting_logo'] ?> ">
+                 <!-- <img class="logo" src="<?= $path_setting . $setting['setting_logo'] ?> "> -->
+                 <img class="logo" src="<?= $backURL . 'assets/img/logo.png' ?>">
                 </a>
             </div>
         </div>
@@ -61,13 +63,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <ul>
-                    <li class="<?= $chk_act['home'] ?>" ><a href="#">หนัง</a></li>
-                    <li class="<?= $chk_act['anime'] ?>" ><a href="#">อนิเมะ</a></li>
-                    <li class="<?= $chk_act['contract'] ?>" ><a href="#">ติดต่อ | ขอหนัง</a></li>
-                </ul>
-                <div class="search">
-                    <i class="fas fa-search"></i>
+                <div class="container">
+                    <ul>
+                        <li class="<?= $chk_act['home'] ?>" ><a href="#">หนัง</a></li>
+                        <li class="<?= $chk_act['anime'] ?>" ><a href="#">อนิเมะ</a></li>
+                        <li class="<?= $chk_act['contract'] ?>" ><a href="#">ติดต่อ | ขอหนัง</a></li>
+                    </ul>
+                    <div class="search">
+                        <i class="fas fa-search"></i>
+                    </div>
                 </div>
             </div>
         </nav>

@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- Bootstrap core CSS -->
+    <script src="<?= $document_root ?>assets/vendor/jquery/jquery.min.js"></script>
     <link href="<?= $document_root ?>assets/vendor/bootstrap/css/bootstrap.min.css?v=1" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -67,7 +68,7 @@
                     <ul>
                         <li class="<?= $chk_act['home'] ?>" ><a href="#">หนัง</a></li>
                         <li class="<?= $chk_act['anime'] ?>" ><a href="#">อนิเมะ</a></li>
-                        <li class="<?= $chk_act['contract'] ?>" ><a href="#">ติดต่อ | ขอหนัง</a></li>
+                        <li class="<?= $chk_act['contract'] ?>" ><a href="/contract">ติดต่อ | ขอหนัง</a></li>
                     </ul>
                     <div class="search">
                         <i class="fas fa-search"></i>

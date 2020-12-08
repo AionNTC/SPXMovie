@@ -376,4 +376,49 @@ footer {
       color: #b3b4b6;
       font-weight: 300; }
 
+#contract .tab-container {
+  width: 75%;
+  margin: 0 auto; }
+  #contract .tab-container .tab-header {
+    font-size: 32px;
+    color: #3c3d3f;
+    text-align: center; }
+    #contract .tab-container .tab-header .tab-title {
+      display: inline-block;
+      position: relative;
+      cursor: pointer; }
+      #contract .tab-container .tab-header .tab-title.active {
+        color: #fc9c38; }
+      #contract .tab-container .tab-header .tab-title:not(:last-child) {
+        padding-right: 12px; }
+        #contract .tab-container .tab-header .tab-title:not(:last-child):after {
+          content: "";
+          display: block;
+          width: 2px;
+          height: 100%;
+          background-color: #fc9c38;
+          position: absolute;
+          right: 0;
+          top: 0; }
+  #contract .tab-container .tab-body {
+    margin-top: 30px; }
+    #contract .tab-container .tab-body .tab-content {
+      display: none; }
+      #contract .tab-container .tab-body .tab-content.active {
+        display: block; }
+      #contract .tab-container .tab-body .tab-content .movie-formcontract {
+        width: 70%;
+        margin: 0 auto; }
+      #contract .tab-container .tab-body .tab-content input {
+        background-color: transparent; }
+      #contract .tab-container .tab-body .tab-content label {
+        font-size: 22px;
+        color: #bcb1b5; }
+      #contract .tab-container .tab-body .tab-content button {
+        margin-top: 15px;
+        background-color: rgba(255, 255, 255, 0.4);
+        font-weight: bold;
+        color: #ffffff;
+        padding: 2px 12px; }
+
 /*# sourceMappingURL=app.css.map */

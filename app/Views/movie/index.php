@@ -1,4 +1,4 @@
-<section id="homepage">
+    <section id="homepage">
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime1"></a>
@@ -24,10 +24,8 @@
 
     <div class="wrapper">
         <section class="container">
-            <div class="caption">
-                WWW.SPXMOVIE.COM ยินดีต้อนรับ ขอต้อนรับเข้าสู่ แหล่งรวมอนิเมะที่มีคุณภาพ ระดับความชัดสูง ดูไได้ไหลลื่นไม่มีขีดสุด ขอให้ทุกท่านมีความสุขกับการรับชมภาพยนต์
-            </div>
 
+            <marquee behavior="scroll" direction="left"  class="caption">WWW.SPXMOVIE.COM ยินดีต้อนรับ ขอต้อนรับเข้าสู่ แหล่งรวมอนิเมะที่มีคุณภาพ ระดับความชัดสูง ดูไได้ไหลลื่นไม่มีขีดสุด ขอให้ทุกท่านมีความสุขกับการรับชมภาพยนต์</marquee>
 
             <?php
             if( !empty($adstop) ){
@@ -82,15 +80,7 @@
                             <div class="card-description">
                                 <div class="card-description-content">
                                     <div class="card-description-top">
-                                    <?php
-                                        $score = $val['movie_ratescore'];
-                                        if( strpos($score,'.') ){
-                                            $score = substr($score,0,3);
-                                        }else{
-                                            $score = substr($score,0);
-                                        }
-                                    ?>
-                                        <div class="card-description-rate"><?=$score?>/10</div>
+
                                     
                                     <?php
                                         if (!empty($val['movie_sound'])) {
@@ -109,6 +99,16 @@
                                         }
                                     ?>
                                         <div class="card-description-type"><?=$sound?></div>
+                                    <?php
+                                        $score = $val['movie_ratescore'];
+                                        if( strpos($score,'.') ){
+                                            $score = substr($score,0,3);
+                                        }else{
+                                            $score = substr($score,0);
+                                        }
+                                    ?>
+                                        <div class="card-description-rate"><?=$score?>/10</div>
+                                    
                                     </div>
                                     <div class="card-description-nema"><?= $val['movie_thname'] ?></div>
                                 </div>

@@ -165,7 +165,7 @@
                 setTimeout(() => {
                     $('.tab-body .tab-content[data-tab="'+data+'"]').fadeIn('fast');
                 }, 400);
-            }
+            }     
         })
     })
 </script>

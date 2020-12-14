@@ -464,10 +464,6 @@ footer {
             clear: both;
             display: table;
         }
-        .preview-image,
-        .preview-data {
-            float: left;
-        }
         .preview-image {
             width: 25%;
             img {
@@ -477,9 +473,15 @@ footer {
         .preview-data {
             width: 75%;
             padding-left: 20px;
+            @media (max-width: 1024px) {
+                padding-left: 0;
+            }
             .preview-title {
                 color: #ffffff;
                 font-size: 38px;
+                @media (max-width: 767px) {
+                    font-size: 26px;
+                }
             }
             
             .preview-view,
@@ -489,6 +491,9 @@ footer {
                 font-size: 16px;
                 font-weight: 300;
                 color: #ffffff;
+                @media (max-width: 1024px) {
+                    font-size: 16px;
+                }
                 span {
                     color: #88888a;
                 }
@@ -525,15 +530,37 @@ footer {
                 font-size: 12px;
             }
         }
+
+        
+        .preview-image,
+        .preview-data {
+            float: left;
+            @media (max-width: 1024px) {
+                float: none;
+                width: 100%;
+            }
+        }
     }
 
     .content-data {
         color: #ffffff;
+        @media (max-width: 1024px) {
+            margin-bottom: 20px;
+        }
+        iframe {
+            height: 527px;
+            @media (min-width: 280px) and (max-width: 425px) {
+                height: 214px;
+            }
+        }
         .title:not(:first-child) {
             margin-top: 20px;
         }
         .title.white {
             color: #ffffff;
+            @media (max-width: 767px) {
+                font-size: 26px;
+            }
         }
         .des {
             font-weight: 300;
@@ -557,8 +584,14 @@ footer {
                 color: #ffffff;
                 background-color: rgba(255, 255, 255, 0.4);
                 border-radius: 10px;
+                @media (min-width: 280px) and (max-width: 425px) {
+                    font-size: 14px;
+                }
                 &:first-child {
                     margin-right: 30px;
+                    @media (min-width: 280px) and (max-width: 425px) {
+                        margin-right: 8px;
+                    }
                 }
             }
         }
@@ -585,16 +618,32 @@ footer {
             }
         }
     }
+    .content-cate {
+        @media (max-width: 1024px) {
+            margin-bottom: 20px;
+        }
+    }
 }
 
 #contract {
     .tab-container {
         width: 75%;
         margin: 0 auto;
+        @media (max-width: 767px) {
+            margin-top: 60px;
+        }
+        @media (max-width: 1024px) {
+            width: 100%;
+            margin-bottom: 30px;
+        }
         .tab-header {
             font-size: 32px;
             color: #3c3d3f;
             text-align: center;
+            
+            @media (min-width: 280px) and (max-width: 375px) {
+                font-size: 24px;
+            }
             .tab-title {
                 display: inline-block;
                 position: relative;
@@ -628,6 +677,9 @@ footer {
                 .movie-formcontract {
                     width: 70%;
                     margin: 0 auto;
+                    @media (max-width: 1024px) {
+                        width: 100%;
+                    }
                 }
                 
                 input {

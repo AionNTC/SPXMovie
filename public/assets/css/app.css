@@ -364,9 +364,6 @@ footer {
     content: "";
     clear: both;
     display: table; }
-  #video .preview .preview-image,
-  #video .preview .preview-data {
-    float: left; }
   #video .preview .preview-image {
     width: 25%; }
     #video .preview .preview-image img {
@@ -374,9 +371,15 @@ footer {
   #video .preview .preview-data {
     width: 75%;
     padding-left: 20px; }
+    @media (max-width: 1024px) {
+      #video .preview .preview-data {
+        padding-left: 0; } }
     #video .preview .preview-data .preview-title {
       color: #ffffff;
       font-size: 38px; }
+      @media (max-width: 767px) {
+        #video .preview .preview-data .preview-title {
+          font-size: 26px; } }
     #video .preview .preview-data .preview-view,
     #video .preview .preview-data .preview-sound,
     #video .preview .preview-data .preview-shared,
@@ -384,6 +387,12 @@ footer {
       font-size: 16px;
       font-weight: 300;
       color: #ffffff; }
+      @media (max-width: 1024px) {
+        #video .preview .preview-data .preview-view,
+        #video .preview .preview-data .preview-sound,
+        #video .preview .preview-data .preview-shared,
+        #video .preview .preview-data .preview-rate {
+          font-size: 16px; } }
       #video .preview .preview-data .preview-view span,
       #video .preview .preview-data .preview-sound span,
       #video .preview .preview-data .preview-shared span,
@@ -411,12 +420,31 @@ footer {
     #video .preview .preview-data .preview-description {
       color: #88888a;
       font-size: 12px; }
+  #video .preview .preview-image,
+  #video .preview .preview-data {
+    float: left; }
+    @media (max-width: 1024px) {
+      #video .preview .preview-image,
+      #video .preview .preview-data {
+        float: none;
+        width: 100%; } }
 #video .content-data {
   color: #ffffff; }
+  @media (max-width: 1024px) {
+    #video .content-data {
+      margin-bottom: 20px; } }
+  #video .content-data iframe {
+    height: 527px; }
+    @media (min-width: 280px) and (max-width: 425px) {
+      #video .content-data iframe {
+        height: 214px; } }
   #video .content-data .title:not(:first-child) {
     margin-top: 20px; }
   #video .content-data .title.white {
     color: #ffffff; }
+    @media (max-width: 767px) {
+      #video .content-data .title.white {
+        font-size: 26px; } }
   #video .content-data .des {
     font-weight: 300;
     color: #b4b4b6; }
@@ -434,8 +462,14 @@ footer {
       color: #ffffff;
       background-color: rgba(255, 255, 255, 0.4);
       border-radius: 10px; }
+      @media (min-width: 280px) and (max-width: 425px) {
+        #video .content-data .btn-group .btn {
+          font-size: 14px; } }
       #video .content-data .btn-group .btn:first-child {
         margin-right: 30px; }
+        @media (min-width: 280px) and (max-width: 425px) {
+          #video .content-data .btn-group .btn:first-child {
+            margin-right: 8px; } }
   #video .content-data .ep-link {
     text-align: center;
     font-weight: 300;
@@ -451,14 +485,27 @@ footer {
     #video .content-data .cate-list a, #video .content-data .cate-list span {
       color: #b3b4b6;
       font-weight: 300; }
+@media (max-width: 1024px) {
+  #video .content-cate {
+    margin-bottom: 20px; } }
 
 #contract .tab-container {
   width: 75%;
   margin: 0 auto; }
+  @media (max-width: 767px) {
+    #contract .tab-container {
+      margin-top: 60px; } }
+  @media (max-width: 1024px) {
+    #contract .tab-container {
+      width: 100%;
+      margin-bottom: 30px; } }
   #contract .tab-container .tab-header {
     font-size: 32px;
     color: #3c3d3f;
     text-align: center; }
+    @media (min-width: 280px) and (max-width: 375px) {
+      #contract .tab-container .tab-header {
+        font-size: 24px; } }
     #contract .tab-container .tab-header .tab-title {
       display: inline-block;
       position: relative;
@@ -485,6 +532,9 @@ footer {
       #contract .tab-container .tab-body .tab-content .movie-formcontract {
         width: 70%;
         margin: 0 auto; }
+        @media (max-width: 1024px) {
+          #contract .tab-container .tab-body .tab-content .movie-formcontract {
+            width: 100%; } }
       #contract .tab-container .tab-body .tab-content input {
         background-color: transparent; }
       #contract .tab-container .tab-body .tab-content label {

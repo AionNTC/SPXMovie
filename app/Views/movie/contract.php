@@ -161,10 +161,10 @@
                 let data = $(this).data('tab');
                 $('.tab-header .tab-title').removeClass('active');
                 $(this).addClass('active');
-                $('.tab-body .tab-content').fadeOut('fast');
+                $('.tab-body .tab-content').fadeOut(200);
                 setTimeout(() => {
                     $('.tab-body .tab-content[data-tab="'+data+'"]').fadeIn('fast');
-                }, 400);
+                }, 190);
             }     
         })
     })

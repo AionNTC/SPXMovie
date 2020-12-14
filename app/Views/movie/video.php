@@ -51,7 +51,7 @@
                     }
 
                 ?>
-                <iframe width="100%" height="527" src="<? echo $urlyb ?>"></iframe>
+                <iframe width="100%" src="<? echo $urlyb ?>"></iframe>
                 
                 <div class="title">
                     <i class="fas fa-scroll"></i> เรื่องย่อ
@@ -86,7 +86,7 @@
                     <? echo $videodata['movie_thname'] ?>
                 </div>
 
-                <video src="#" width="100%" height="527"></video>
+                <video src="#" width="100%"></video>
 
                 <div class="btn-group">
                     <button class="btn">หนังไม่เล่น กดที่นี่ <i class="fas fa-redo"></i></button>

@@ -448,8 +448,14 @@ class Movie extends BaseController
 			'chk_act' => $chk_act,
 		];
 
+		// echo view('templates/header.php', $header_data);
+		// echo view('movie/video.php', $body_data);
+		// echo view('movie/footer.php');
+		// echo view('templates/footer.php');
+
 		echo view('templates/header.php', $header_data);
 		echo view('movie/contract.php');
+		echo view('movie/footer.php');
 		echo view('templates/footer.php');
 	}
 

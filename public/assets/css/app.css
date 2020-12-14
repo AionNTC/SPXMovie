@@ -546,5 +546,8 @@ footer {
         font-weight: bold;
         color: #ffffff;
         padding: 2px 12px; }
+@media (max-width: 1024px) {
+  #contract .content-cate {
+    margin-bottom: 20px; } }
 
 /*# sourceMappingURL=app.css.map */

@@ -64,6 +64,30 @@
                 range.select();
             }
         }
+
+        $(document).ready(function() {
+            $('.navbar').on('click', '.navbar-toggler:not(".disabled")',function() {
+                $('.navbar .navbar-toggler').addClass('disabled')
+                setTimeout(() => {
+                    $('.navbar .navbar-toggler').removeClass('disabled')
+                }, 1000);
+                $('#navbarNavAltMarkup').toggleClass('active');
+                if($('.search .search-form').hasClass('active')) {
+                    $('.search .search-form').toggleClass('active')
+                }     
+            });
+
+            $('.navbar').on('click', '.search:not(".disabled")',function() {
+                $('.navbar .search').addClass('disabled')
+                setTimeout(() => {
+                    $('.navbar .search').removeClass('disabled')
+                }, 1000);
+                $('.search .search-form').toggleClass('active');
+                if($('#navbarNavAltMarkup').hasClass('active')) {
+                    $('#navbarNavAltMarkup').toggleClass('active')
+                }     
+            });
+        })
     </script>
 </body>
 </html>

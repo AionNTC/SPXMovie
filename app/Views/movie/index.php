@@ -1,22 +1,13 @@
     <section id="homepage">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime1"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime2"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime3"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime4"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime5"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime6"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime7"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime8"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime9"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime10"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime11"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime12"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime13"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime14"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime15"></a>
-            <a href="#" class="swiper-slide"><img src="https://dummyimage.com/242x248/b8c200/000000&text=Anime16"></a>
+            
+            <? 
+                foreach($list_popular as $popular) { 
+                    $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
+            ?>
+                <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '<?=$popular['movie_type']?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="swiper-slide"><img src="<? echo $popular['movie_picture'] ?>"></a>
+            <? } ?>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -122,103 +113,48 @@
                 <div class="content-cate">
                     <div class="cate-group">
                         <div class="cate-title">อนิเมะแนะนำ</div>
-                        <a href="#" class="thumbnail-cate">
-                            <img src="https://dummyimage.com/86x120/b8c200/000000&text=thumbnail">
-                            <div class="thumbnail-text">
-                                <div class="thumbnail-title">BLACK CLOVER แบล็คโคลเวอร์ ตอนที่ 1-151+OVA ซับไทย</div>
-                                <div class="thumbnail-rate">7.92/100</div>
-                                <div class="thumbnail-description">SOUND: ซับไทย</div>
-                            </div>
-                        </a>
-                        <a href="#" class="thumbnail-cate">
-                            <img src="https://dummyimage.com/86x120/b8c200/000000&text=thumbnail">
-                            <div class="thumbnail-text">
-                                <div class="thumbnail-title">BLACK CLOVER แบล็คโคลเวอร์ ตอนที่ 1-151+OVA ซับไทย</div>
-                                <div class="thumbnail-rate">7.92/100</div>
-                                <div class="thumbnail-description">SOUND: ซับไทย</div>
-                            </div>
-                        </a>
-                        <a href="#" class="thumbnail-cate">
-                            <img src="https://dummyimage.com/86x120/b8c200/000000&text=thumbnail">
-                            <div class="thumbnail-text">
-                                <div class="thumbnail-title">BLACK CLOVER แบล็คโคลเวอร์ ตอนที่ 1-151+OVA ซับไทย</div>
-                                <div class="thumbnail-rate">7.92/100</div>
-                                <div class="thumbnail-description">SOUND: ซับไทย</div>
-                            </div>
-                        </a>
-                        <a href="#" class="thumbnail-cate">
-                            <img src="https://dummyimage.com/86x120/b8c200/000000&text=thumbnail">
-                            <div class="thumbnail-text">
-                                <div class="thumbnail-title">BLACK CLOVER แบล็คโคลเวอร์ ตอนที่ 1-151+OVA ซับไทย</div>
-                                <div class="thumbnail-rate">7.92/100</div>
-                                <div class="thumbnail-description">SOUND: ซับไทย</div>
-                            </div>
-                        </a>
-                        <a href="#" class="thumbnail-cate">
-                            <img src="https://dummyimage.com/86x120/b8c200/000000&text=thumbnail">
-                            <div class="thumbnail-text">
-                                <div class="thumbnail-title">BLACK CLOVER แบล็คโคลเวอร์ ตอนที่ 1-151+OVA ซับไทย</div>
-                                <div class="thumbnail-rate">7.92/100</div>
-                                <div class="thumbnail-description">SOUND: ซับไทย</div>
-                            </div>
-                        </a>
+                        <?
+                            $list_popular_slice = array_slice($list_popular, 0, 5, true);
+                            foreach($list_popular_slice as $popular) {
+                                if (!empty($popular['movie_sound'])) {
+                                    $sound = $popular['movie_sound'];
+                                    if (strtolower($popular['movie_sound'])=='th' || 
+                                    strtolower($popular['movie_sound'])=='thai' ||
+                                    strpos(strtolower($popular['movie_sound']),'thai')==true ||
+                                    strtolower($popular['movie_sound'])=='ts') {
+                                        $sound = 'พากษ์ไทย';
+                                    } else if (strtolower($popular['movie_sound'])=='eng') {
+                                        $sound = 'SOUNDTRACK';
+                                    } else if (strtolower($popular['movie_sound'])=='st' ||
+                                    strpos(strtolower($popular['movie_sound']),'(t)')==true) {
+                                        $sound = 'ซับไทย';
+                                    }
+                                }
+
+                                $score = $popular['movie_ratescore'];
+                                if( strpos($score,'.') ){
+                                    $score = substr($score,0,3);
+                                }else{
+                                    $score = substr($score,0);
+                                }
+                                
+                                $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
+                        ?>
+                            <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '<?=$popular['movie_type']?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="thumbnail-cate">
+                                <img style="max-width: 86px;" src="<? echo $popular['movie_picture'] ?>">
+                                <div class="thumbnail-text">
+                                    <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
+                                    <div class="thumbnail-rate"><? echo $score ?>/100</div>
+                                    <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
+                                </div>
+                            </a>
+                        <? } ?>
                     </div>  
                     <div class="cate-group">
                         <div class="cate-title">หมวดหมู่</div>
-                        <a href="#" class="fullline-cate">อนิเมะทั้งหมด <span>729</span></a>
-                        <a href="#" class="fullline-cate">ซับไทย <span>129</span></a>
-                        <a href="#" class="fullline-cate">พากษ์ไทย <span>29</span></a>
-                        <a href="#" class="fullline-cate">Movie <span>5</span></a>
-                        <a href="#" class="fullline-cate">อนิเมะ HENTAI <span>729</span></a>
-                        <a href="#" class="fullline-cate">จบแล้ว <span>129</span></a>
-                        <a href="#" class="fullline-cate">ยังไม่จบ <span>29</span></a>
-                        <a href="#" class="fullline-cate">กำลังมา-(การ์ตูนใหม่) <span>5</span></a>
-                        <a href="#" class="fullline-cate">อนิเมะ 18+ <span>3</span></a>
-                    </div>
-                    <div class="cate-group">
-                        <div class="cate-title">ประเภทอนิเมะ</div>
-                        <a href="#" class="halfline-cate">ACTION</a>
-                        <a href="#" class="halfline-cate">SAMURAI</a>
-                        <a href="#" class="halfline-cate">ADVENTURE</a>
-                        <a href="#" class="halfline-cate">ROMANCE</a>
-                        <a href="#" class="halfline-cate">CARS</a>
-                        <a href="#" class="halfline-cate">SCHOOL</a>
-                        <a href="#" class="halfline-cate">COMEDY</a>
-                        <a href="#" class="halfline-cate">SCI-FI</a>
-                        <a href="#" class="halfline-cate">DEMENTIA</a>
-                        <a href="#" class="halfline-cate">SHOUJO</a>
-                        <a href="#" class="halfline-cate">DEMONS</a>
-                        <a href="#" class="halfline-cate">SHOUJO AI</a>
-                        <a href="#" class="halfline-cate">MYSTERY</a>
-                        <a href="#" class="halfline-cate">SHOUNEN</a>
-                        <a href="#" class="halfline-cate">DRAMA</a>
-                        <a href="#" class="halfline-cate">SHOUNEN AI</a>
-                        <a href="#" class="halfline-cate">ECCHI</a>
-                        <a href="#" class="halfline-cate">SPACE</a>
-                        <a href="#" class="halfline-cate">FANTASY</a>
-                        <a href="#" class="halfline-cate">SPORTS</a>
-                        <a href="#" class="halfline-cate">GAME</a>
-                        <a href="#" class="halfline-cate">SUPER POWER</a>
-                        <a href="#" class="halfline-cate">HENTAI</a>
-                        <a href="#" class="halfline-cate">VAMPIRE</a>
-                        <a href="#" class="halfline-cate">HISTORICAL</a>
-                        <a href="#" class="halfline-cate">YAOI</a>
-                        <a href="#" class="halfline-cate">HORROR</a>
-                        <a href="#" class="halfline-cate">YURI</a>
-                        <a href="#" class="halfline-cate">KIDS</a>
-                        <a href="#" class="halfline-cate">HAREM</a>
-                        <a href="#" class="halfline-cate">MAGIC</a>
-                        <a href="#" class="halfline-cate">SLICE OF LIFE</a>
-                        <a href="#" class="halfline-cate">MARTIAL ARTS</a>
-                        <a href="#" class="halfline-cate">SUPERNATURE</a>
-                        <a href="#" class="halfline-cate">MECHA</a>
-                        <a href="#" class="halfline-cate">MILITARY</a>
-                        <a href="#" class="halfline-cate">MUSIC</a>
-                        <a href="#" class="halfline-cate">POLICE</a>
-                        <a href="#" class="halfline-cate">PARODY</a>
-                        <a href="#" class="halfline-cate">PSYCHOLOGICAL</a>
-                        <a href="#" class="halfline-cate">SEINEN</a>
-                        <a href="#" class="halfline-cate">THRILLER</a>
+                        <? foreach($list_category as $cate) { ?>
+                            <a href="#" class="fullline-cate"><? echo $cate['category_name']; ?> <span><? echo $cate['movie_nb']; ?></span></a>        
+                        <? } ?>
                     </div>
                 </div>
             </div>

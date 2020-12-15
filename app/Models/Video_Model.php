@@ -64,7 +64,7 @@ class Video_Model extends Model
     public function get_category($branch_id) // เรียก Category ตาม Branch 
     {
         $sql = "SELECT
-            *
+            *, count(mo_moviecate.movie_id) as movie_nb
             FROM
             mo_category
             inner JOIN mo_moviecate ON mo_category.category_id = mo_moviecate.category_id 

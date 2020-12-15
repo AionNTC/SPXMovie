@@ -29,3 +29,11 @@ CRITICAL - 2020-12-14 21:54:13 --> Undefined index: page
 #3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2020-12-14 23:37:58 --> syntax error, unexpected '}', expecting ';' or ','
+#0 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/index.php', Array, true)
+#1 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(87): view('movie/index.php', Array)
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}

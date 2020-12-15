@@ -50,6 +50,7 @@ class Movie extends BaseController
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
+		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
 
 		$chk_act = [
 			'home' => 'active',
@@ -65,8 +66,12 @@ class Movie extends BaseController
 			'path_setting' => $this->path_setting,
 			'list_category' => $list_category,
 			'chk_act' => $chk_act,
+			'list_popular' => $list_popular,
 			'setting' => $setting
 		];
+
+		// var_dump($list_popular);
+		// exit;
 
 		$list = $this->VideoModel->get_list_video($this->mvbranch);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);

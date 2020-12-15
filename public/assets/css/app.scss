@@ -7,6 +7,12 @@ body {
         margin: 0 auto;
     }
 
+    .swiper-slide {
+        img {
+            width: 100%;
+        }
+    }
+
     .content {
         @media (min-width: 767px) {
             margin-top: 60px;
@@ -270,6 +276,7 @@ body {
 
                 .thumbnail-cate {
                     display: block;
+                    cursor: pointer;
                     &:not(:last-child) {
                         margin-bottom: 40px;
                     }

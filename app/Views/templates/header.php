@@ -66,7 +66,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <ul>
-                        <li class="<?= $chk_act['home'] ?>" ><a href="#">หนัง</a></li>
+                        <li class="<?= $chk_act['home'] ?>" ><a href="<?php echo base_url() ?>">หนัง</a></li>
                         <li class="<?= $chk_act['anime'] ?>" ><a href="#">อนิเมะ</a></li>
                         <li class="<?= $chk_act['contract'] ?>" ><a href="/contract">ติดต่อ | ขอหนัง</a></li>
                     </ul>

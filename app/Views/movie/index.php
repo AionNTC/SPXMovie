@@ -2,7 +2,7 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             
-            <? 
+            <?
                 foreach($list_popular as $popular) { 
                     $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
             ?>
@@ -18,12 +18,12 @@
 
             <marquee behavior="scroll" direction="left"  class="caption">WWW.SPXMOVIE.COM ยินดีต้อนรับ ขอต้อนรับเข้าสู่ แหล่งรวมอนิเมะที่มีคุณภาพ ระดับความชัดสูง ดูไได้ไหลลื่นไม่มีขีดสุด ขอให้ทุกท่านมีความสุขกับการรับชมภาพยนต์</marquee>
 
-            <?php
-            if( !empty($adstop) ){
-            foreach($adstop as $ads){
+            <?
+                if( !empty($adstop) ){
+                foreach($adstop as $ads){
             ?>
             <a href="#"><img src="https://dummyimage.com/1286x218/b8c200/000000&text=Ads"></a>
-            <?php
+            <?
             }
             }
             ?>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="content-data">
                     <div class="content-list">
-                    <?PHP
+                    <?
                         foreach ($list['list'] as $val) {
                             if (substr($val['movie_picture'], 0, 4) == 'http') {
                                 $movie_picture = $val['movie_picture'];
@@ -49,7 +49,7 @@
                             $url_name = urlencode(str_replace(' ', '-', $val['movie_thname']));
                     ?>
                         <a onclick="goView('<?= $val['movie_id'] ?>', '<?=$url_name?>' , '<?=$val['movie_type']?>')" alt="<?= $val['movie_thname'] ?>" title="<?= $val['movie_thname'] ?>" class="card-content" style="background-image: url('<?= $movie_picture ?>')">
-                        <?php
+                        <?
                             if (!($val['movie_view'])) {
                                 $view = 0;
                             } else if (strlen($val['movie_view']) >= 5) {
@@ -62,18 +62,18 @@
                                 <i class="fas fa-eye"></i> <span> <?=$view?></span>
                             </div>
                         
-                        <?php 
+                        <? 
                             if(!empty($val['movie_quality'])){ 
                         ?>
                             <div class="card-quality"><span><?=$val['movie_quality']?></span></div>
-                        <?php } ?>
+                        <? } ?>
 
                             <div class="card-description">
                                 <div class="card-description-content">
                                     <div class="card-description-top">
 
                                     
-                                    <?php
+                                    <?
                                         if (!empty($val['movie_sound'])) {
                                             $sound = $val['movie_sound'];
                                             if (strtolower($val['movie_sound'])=='th' || 
@@ -87,10 +87,16 @@
                                             strpos(strtolower($val['movie_sound']),'(t)')==true) {
                                                 $sound = 'ซับไทย';
                                             }
-                                        }
                                     ?>
                                         <div class="card-description-type"><?=$sound?></div>
-                                    <?php
+                                    <?
+                                        } else {
+                                    ?>
+                                        <div class="card-description-type" style="opacity: 0;">.</div>
+                                    <?
+                                        }
+                                    ?>
+                                    <?
                                         $score = $val['movie_ratescore'];
                                         if( strpos($score,'.') ){
                                             $score = substr($score,0,3);
@@ -105,14 +111,14 @@
                                 </div>
                             </div>
                         </a>
-                    <?php 
+                    <? 
                         }
                     ?>
                     </div>
                 </div>
                 <div class="content-cate">
                     <div class="cate-group">
-                        <div class="cate-title">อนิเมะแนะนำ</div>
+                        <div class="cate-title">หนังแนะนำ</div>
                         <?
                             $list_popular_slice = array_slice($list_popular, 0, 5, true);
                             foreach($list_popular_slice as $popular) {
@@ -153,7 +159,7 @@
                     <div class="cate-group">
                         <div class="cate-title">หมวดหมู่</div>
                         <? foreach($list_category as $cate) { ?>
-                            <a href="#" class="fullline-cate"><? echo $cate['category_name']; ?> <span><? echo $cate['movie_nb']; ?></span></a>        
+                            <a onclick="goCate('<?= $cate['category_id'] ?>', '<?= $cate['category_name'] ?>')" alt="<?= $cate['category_name'] ?>" title="<?= $cate['category_name'] ?>" class="fullline-cate"><? echo $cate['category_name']; ?> <span><? echo $cate['movie_nb']; ?></span></a>        
                         <? } ?>
                     </div>
                 </div>

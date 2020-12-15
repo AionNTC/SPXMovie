@@ -54,7 +54,7 @@ body {
       margin-bottom: 15px; }
     body .content .content-data .content-list {
       display: flex;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
       flex-wrap: wrap; }
       body .content .content-data .content-list .card-content {
@@ -244,6 +244,7 @@ body {
           content: "\2605";
           color: #ff9a36; }
     body .content .content-cate .cate-group .fullline-cate, body .content .content-cate .cate-group .halfline-cate {
+      cursor: pointer;
       display: block;
       border: 1px solid #fd9b38;
       color: #fd9b38;

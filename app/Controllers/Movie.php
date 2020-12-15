@@ -251,6 +251,7 @@ class Movie extends BaseController
 	public function moviedata_category()
 	{
 		$list = $this->VideoModel->get_id_video_bycategory($this->mvbranch, $_GET['keyword'], $_GET['page']);
+		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 
 		$header_data = [
 			'document_root' => $this->document_root,
@@ -258,11 +259,24 @@ class Movie extends BaseController
 			'list' => $list,
 		];
 
-		echo view('moviedata.php', $header_data);
+		$body_data = [
+			'url_loadmore' => base_url('moviedata'),
+			'path_thumbnail' => $this->path_thumbnail,
+			'list' => $list,
+			'adsbottom' => $adsbottom,
+			'path_ads' => $this->path_ads,
+		];
+
+		echo view('templates/header.php', $header_data);
+		echo view('movie/category.php', $body_data);
+		echo view('movie/footer.php');
+		echo view('templates/footer.php');
 	}
 
 	public function categorylist() //ต้นแบบ หน้า cate / search
 	{
+		var_dump($_GET['keyword']);
+		exit;
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
@@ -382,33 +396,24 @@ class Movie extends BaseController
 		$list = $this->VideoModel->get_id_video_bycategory($this->mvbranch, $cate_id, 1);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
+		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
 		
 		$chk_act = [
-			'home' => '',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => 'active',
+			'home' => 'active',
+			'anime' => '',
 			'contract' => ''
 		];
 
-		if($cate_id == '28'){
-			$chk_act = [
-				'home' => '',
-				'poppular' => '',
-				'newmovie' => '',
-				'netflix' => 'active',
-				'category' => '',
-				'contract' => ''
-			];
-		}
-
 		$header_data = [
+			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
+			'searchUrl' => $this->searchUrl,
+			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
-			'setting' => $setting,
 			'list_category' => $list_category,
 			'chk_act' => $chk_act,
+			'list_popular' => $list_popular,
+			'setting' => $setting
 		];
 
 		$body_data = [
@@ -424,7 +429,8 @@ class Movie extends BaseController
 		];
 
 		echo view('templates/header.php', $header_data);
-		echo view('movie/list.php', $body_data);
+		echo view('movie/category.php', $body_data);
+		echo view('movie/footer.php');
 		echo view('templates/footer.php');
 	}
 

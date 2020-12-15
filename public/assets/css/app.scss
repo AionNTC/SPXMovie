@@ -71,7 +71,7 @@ body {
             }
             .content-list {
                 display: flex;
-                justify-content: center;
+                justify-content: left;
                 align-items: center;
                 flex-wrap: wrap;
                 .card-content {
@@ -304,6 +304,7 @@ body {
                 }
 
                 .fullline-cate, .halfline-cate {
+                    cursor: pointer;
                     display: block;
                     border: 1px solid #fd9b38;
                     color: #fd9b38;

@@ -1,0 +1,31 @@
+CRITICAL - 2020-12-14 21:52:03 --> Uncaught ErrorException: Array to string conversion in C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php:82
+Stack trace:
+#0 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(82): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\xampp\\htdocs...', 82, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2020-12-14 21:52:41 --> Call to undefined function App\Controllers\dump()
+#0 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-12-14 21:52:50 --> Array to string conversion
+#0 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(82): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\xampp\\htdocs...', 82, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-12-14 21:54:13 --> Undefined index: page
+#0 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(225): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 225, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->moviedata()
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

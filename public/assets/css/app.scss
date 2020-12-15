@@ -88,7 +88,7 @@ body {
                         height: 400px;
                     }
                     
-                    @media (min-width: 375px) {
+                    @media (min-width: 375px) and (max-width: 575px) {
                         height: 190px;
                         &:not(:nth-child(3n)) {
                             margin-right: 12px;
@@ -362,48 +362,102 @@ header {
     .logo-bar {
         height: 100px;
         padding: 15px 6px 18px;
+        @media (max-width: 992px) {
+            text-align: center;
+            padding: 2px;
+            height: 60px;
+        }
         img {
             max-height: 74px;
+            @media (max-width: 992px) {
+                height: 58px;
+            }
         }
     }
     .menu-bar {
         background-color: #fd9b38;
         height: 80px;
         margin-bottom: 8px;
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding:  0 ;
-            width: 50%;
-            float: left;
-            li {
-                display: inline-block;
-                padding: 25px 32px 24px;
-                cursor: pointer;
-                position: relative;
+        @media (max-width: 992px) {
+            height: 60px;
+            padding: 0;
+        }
+
+        .navbar-toggler-icon {    
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .collapse.navbar-collapse {
+            @media (max-width: 992px) {
+                display: block;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                background-color: #fd9b38;
+                z-index: 9;
+                transition: height 0.5s ease-in-out;
+                height: 0;
+                overflow: hidden;
                 &.active {
+                    height: 180px;
+                }
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding:  0 ;
+                
+                @media (max-width: 992px) {
+                    margin: 0 auto;
+                }
+                
+                @media (min-width: 576px) {
+                    max-width: 540px;
+                }
+                
+                @media (min-width: 768px) {
+                    max-width: 720px;
+                }
+                
+                @media (min-width: 992px) {
+                    max-width: 960px;
+                }
+                li {
+                    display: inline-block;
+                    padding: 25px 32px 24px;
+                    cursor: pointer;
+                    position: relative;
+                    @media (max-width: 992px) {                        
+                        padding: 14px;;
+                        display: block;
+                    }
+                    &.active {
+                        a {
+                            color: #ffffff;
+                        }
+                    }
+                    &:hover {
+                        @media (min-width: 992px) {
+                            &:after {
+                                background-color: #ffffff;
+                                content: "";
+                                width: 6px;
+                                height: 6px;
+                                position: absolute;
+                                border-radius: 50%;
+                                bottom: 16px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+                        }
+                    }
                     a {
-                        color: #ffffff;
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: #3d3e42;
+                        text-decoration: none;
                     }
-                }
-                &:hover {
-                    &:after {
-                        background-color: #ffffff;
-                        content: "";
-                        width: 6px;
-                        height: 6px;
-                        position: absolute;
-                        border-radius: 50%;
-                        bottom: 16px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                    }
-                }
-                a {
-                    font-size: 20px;
-                    font-weight: bold;
-                    color: #3d3e42;
-                    text-decoration: none;
                 }
             }
         }
@@ -413,11 +467,44 @@ header {
             height: 80px;
             text-align: right;
             cursor: pointer;
+            @media (max-width: 992px) {
+                height: 60px;
+            }
             .fa-search {
                 color: #fd9b38;
                 background-color: #3d3e40;
                 padding: 22px 20px;
                 font-size: 36px;
+                
+                @media (max-width: 992px) {
+                    padding: 16px 16px;
+                    font-size: 28px;
+                }
+            }
+            .search-form {
+                overflow: hidden;
+                height: 0;
+                transition: height 0.5s ease-in-out;
+                position: relative;
+                z-index: 9;
+                &.active {
+                    height: 50px;
+                }
+                form {
+                    background-color: #fd9b38;
+                    padding: 10px;
+                    border-bottom-right-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                    input {
+                        vertical-align: middle;
+                        width: calc(100% - 65px);
+                    }
+                    .btn {
+                        background-color: #6f6f70;
+                        color: #ffffff;
+                        padding: 2px 10px;
+                    }
+                }
             }
         }
     }

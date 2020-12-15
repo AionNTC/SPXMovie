@@ -60,18 +60,24 @@
         </div>
 
         <nav class="navbar navbar-expand-lg menu-bar">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="container">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <ul>
                         <li class="<?= $chk_act['home'] ?>" ><a href="#">หนัง</a></li>
                         <li class="<?= $chk_act['anime'] ?>" ><a href="#">อนิเมะ</a></li>
                         <li class="<?= $chk_act['contract'] ?>" ><a href="/contract">ติดต่อ | ขอหนัง</a></li>
                     </ul>
-                    <div class="search">
-                        <i class="fas fa-search"></i>
+                </div>
+                <div class="search">
+                    <i class="fas fa-search"></i>
+                    <div class="search-form">
+                        <form action="">
+                            <input type="text">
+                            <button class="btn">ค้นหา</button>
+                        </form>
                     </div>
                 </div>
             </div>

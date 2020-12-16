@@ -59,6 +59,9 @@ body {
       justify-content: left;
       align-items: center;
       flex-wrap: wrap; }
+      @media (max-width: 1024px) {
+        body .content .content-data .content-list {
+          justify-content: center; } }
       body .content .content-data .content-list .card-content {
         cursor: pointer;
         width: 265px;
@@ -193,21 +196,28 @@ body {
           content: "";
           clear: both;
           display: table; }
-        body .content .content-data .content-pagination .pagination .pagination-button {
+        body .content .content-data .content-pagination .pagination .page-item {
           float: left;
-          margin: 0 2px;
-          color: #ffffff;
-          width: 40px;
-          padding: 8px 0;
-          text-decoration: none;
-          transition: background-color .3s;
-          background-color: #fd9b38;
-          font-weight: bold; }
-          body .content .content-data .content-pagination .pagination .pagination-button.active {
-            background-color: #bcb1b5; }
-          body .content .content-data .content-pagination .pagination .pagination-button.disable {
+          margin: 0 2px; }
+          body .content .content-data .content-pagination .pagination .page-item a {
+            color: #ffffff;
+            width: 40px;
+            padding: 8px 0;
+            text-decoration: none;
+            transition: background-color .3s;
+            background-color: #fd9b38;
+            font-weight: bold; }
+            @media (min-width: 280px) and (max-width: 435px) {
+              body .content .content-data .content-pagination .pagination .page-item a {
+                padding: 4px 0;
+                font-size: 14px;
+                width: 20px; } }
+          body .content .content-data .content-pagination .pagination .page-item.disabled {
             display: none; }
-          body .content .content-data .content-pagination .pagination .pagination-button:hover:not(.active) {
+          body .content .content-data .content-pagination .pagination .page-item.active a {
+            background-color: #bcb1b5;
+            border-color: transparent; }
+          body .content .content-data .content-pagination .pagination .page-item:hover:not(.active) {
             background-color: #ddd; }
   body .content .content-cate {
     float: right;

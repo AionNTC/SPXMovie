@@ -47,6 +47,7 @@ class Movie extends BaseController
 	public function index()
 	{
 		$order = 'all';
+		$page = isset($_GET['page']) ? $_GET['page'] : 1;
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
@@ -74,10 +75,9 @@ class Movie extends BaseController
 			'setting' => $setting
 		];
 
-		$list = $this->VideoModel->get_list_video($this->mvbranch, '', 1, $order);
+		$list = $this->VideoModel->get_list_video($this->mvbranch, '', $page, $order);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
-
 		$body_data = [
 			'order' => $order,
 			'branch' => $this->mvbranch,
@@ -356,12 +356,13 @@ class Movie extends BaseController
 
 	public function search($keyword)
 	{
+		$page = isset($_GET['page']) ? $_GET['page'] : 1;
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
 		$list = array() ;
 		$keyword = urldecode(str_replace("'","\'",$keyword));
-		$list = $this->VideoModel->get_list_video($this->mvbranch,  $keyword, '1');
+		$list = $this->VideoModel->get_list_video($this->mvbranch,  $keyword, $page);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
 		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
@@ -385,6 +386,9 @@ class Movie extends BaseController
 			'setting' => $setting
 		];
 
+		// print_r($list);
+		// exit;
+
 		$body_data = [
 			'url_loadmore' => base_url('moviedata_search'),
 			'path_thumbnail' => $this->path_thumbnail,
@@ -401,11 +405,11 @@ class Movie extends BaseController
 
 	public function category($cate_id, $cate_name)
 	{
-
+		$page = isset($_GET['page']) ? $_GET['page'] : 1;
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
-		$list = $this->VideoModel->get_id_video_bycategory($this->mvbranch, $cate_id, 1);
+		$list = $this->VideoModel->get_id_video_bycategory($this->mvbranch, $cate_id, $page);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
 		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);

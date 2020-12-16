@@ -43,82 +43,92 @@
                 </div>
                 <div class="content-data">
                     <div class="content-list">
-                    <?
-                        foreach ($list['list'] as $val) {
-                            if (substr($val['movie_picture'], 0, 4) == 'http') {
-                                $movie_picture = $val['movie_picture'];
-                            } else {
-                                $movie_picture = $path_thumbnail . $val['movie_picture'];
-                            }
-
-                            $url_name = urlencode(str_replace(' ', '-', $val['movie_thname']));
-                    ?>
-                        <a onclick="goView('<?= $val['movie_id'] ?>', '<?=$url_name?>' , '<?=$val['movie_type']?>')" alt="<?= $val['movie_thname'] ?>" title="<?= $val['movie_thname'] ?>" class="card-content" style="background-image: url('<?= $movie_picture ?>')">
                         <?
-                            if (!($val['movie_view'])) {
-                                $view = 0;
-                            } else if (strlen($val['movie_view']) >= 5) {
-                                $view =  substr($val['movie_view'], 0, -3) . 'K';
+                            if ($list['total_record'] != 0) {
+                                foreach ($list['list'] as $val) {
+                                    if (substr($val['movie_picture'], 0, 4) == 'http') {
+                                        $movie_picture = $val['movie_picture'];
+                                    } else {
+                                        $movie_picture = $path_thumbnail . $val['movie_picture'];
+                                    }
+
+                                    $url_name = urlencode(str_replace(' ', '-', $val['movie_thname']));
+                        ?>
+                            <a onclick="goView('<?= $val['movie_id'] ?>', '<?=$url_name?>' , '<?=$val['movie_type']?>')" alt="<?= $val['movie_thname'] ?>" title="<?= $val['movie_thname'] ?>" class="card-content" style="background-image: url('<?= $movie_picture ?>')">
+                            <?
+                                if (!($val['movie_view'])) {
+                                    $view = 0;
+                                } else if (strlen($val['movie_view']) >= 5) {
+                                    $view =  substr($val['movie_view'], 0, -3) . 'K';
+                                } else {
+                                    $view = $val['movie_view'];
+                                }
+                            ?>
+                                <div class="card-view">
+                                    <i class="fas fa-eye"></i> <span> <?=$view?></span>
+                                </div>
+                            
+                            <? 
+                                if(!empty($val['movie_quality'])){ 
+                            ?>
+                                <div class="card-quality"><span><?=$val['movie_quality']?></span></div>
+                            <? } ?>
+
+                                <div class="card-description">
+                                    <div class="card-description-content">
+                                        <div class="card-description-top">
+
+                                        
+                                        <?
+                                            if (!empty($val['movie_sound'])) {
+                                                $sound = $val['movie_sound'];
+                                                if (strtolower($val['movie_sound'])=='th' || 
+                                                strtolower($val['movie_sound'])=='thai' ||
+                                                strpos(strtolower($val['movie_sound']),'thai')==true ||
+                                                strtolower($val['movie_sound'])=='ts') {
+                                                    $sound = 'พากษ์ไทย';
+                                                } else if (strtolower($val['movie_sound'])=='eng') {
+                                                    $sound = 'SOUNDTRACK';
+                                                } else if (strtolower($val['movie_sound'])=='st' ||
+                                                strpos(strtolower($val['movie_sound']),'(t)')==true) {
+                                                    $sound = 'ซับไทย';
+                                                }
+                                        ?>
+                                            <div class="card-description-type"><?=$sound?></div>
+                                        <?
+                                            } else {
+                                        ?>
+                                            <div class="card-description-type" style="opacity: 0;">.</div>
+                                        <?
+                                            }
+                                        ?>
+                                        <?
+                                            $score = $val['movie_ratescore'];
+                                            if( strpos($score,'.') ){
+                                                $score = substr($score,0,3);
+                                            }else{
+                                                $score = substr($score,0);
+                                            }
+                                        ?>
+                                            <div class="card-description-rate"><?=$score?>/10</div>
+                                        
+                                        </div>
+                                        <div class="card-description-nema"><?= $val['movie_thname'] ?></div>
+                                    </div>
+                                </div>
+                            </a>
+                        <? 
+                                }
                             } else {
-                                $view = $val['movie_view'];
+                        ?>
+                            <div class="title text-center">ไม่พบหนัง</div>
+                        <?
                             }
                         ?>
-                            <div class="card-view">
-                                <i class="fas fa-eye"></i> <span> <?=$view?></span>
-                            </div>
-                        
-                        <? 
-                            if(!empty($val['movie_quality'])){ 
-                        ?>
-                            <div class="card-quality"><span><?=$val['movie_quality']?></span></div>
-                        <? } ?>
-
-                            <div class="card-description">
-                                <div class="card-description-content">
-                                    <div class="card-description-top">
-
-                                    
-                                    <?
-                                        if (!empty($val['movie_sound'])) {
-                                            $sound = $val['movie_sound'];
-                                            if (strtolower($val['movie_sound'])=='th' || 
-                                            strtolower($val['movie_sound'])=='thai' ||
-                                            strpos(strtolower($val['movie_sound']),'thai')==true ||
-                                            strtolower($val['movie_sound'])=='ts') {
-                                                $sound = 'พากษ์ไทย';
-                                            } else if (strtolower($val['movie_sound'])=='eng') {
-                                                $sound = 'SOUNDTRACK';
-                                            } else if (strtolower($val['movie_sound'])=='st' ||
-                                            strpos(strtolower($val['movie_sound']),'(t)')==true) {
-                                                $sound = 'ซับไทย';
-                                            }
-                                    ?>
-                                        <div class="card-description-type"><?=$sound?></div>
-                                    <?
-                                        } else {
-                                    ?>
-                                        <div class="card-description-type" style="opacity: 0;">.</div>
-                                    <?
-                                        }
-                                    ?>
-                                    <?
-                                        $score = $val['movie_ratescore'];
-                                        if( strpos($score,'.') ){
-                                            $score = substr($score,0,3);
-                                        }else{
-                                            $score = substr($score,0);
-                                        }
-                                    ?>
-                                        <div class="card-description-rate"><?=$score?>/10</div>
-                                    
-                                    </div>
-                                    <div class="card-description-nema"><?= $val['movie_thname'] ?></div>
-                                </div>
-                            </div>
-                        </a>
-                    <? 
-                        }
-                    ?>
+                    </div>
+                    <div class="content-pagination">
+                        <ul id="pagination-demo" class="pagination">
+                        </ul>
                     </div>
                 </div>
                 <div class="content-cate">

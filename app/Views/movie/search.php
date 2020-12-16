@@ -8,7 +8,8 @@
                 <div class="content-list">
                     
                     <?
-                        foreach ($list['list'] as $val) {
+                        if ($list['total_record'] != 0) {
+                            foreach ($list['list'] as $val) {
                             if (substr($val['movie_picture'], 0, 4) == 'http') {
                                 $movie_picture = $val['movie_picture'];
                             } else {
@@ -81,23 +82,19 @@
                                 </div>
                             </a>
                     <? 
+                            }
+                        } else {
+                    ?>
+                        <div class="title text-center">ไม่พบหนัง</div>
+                    <?
                         }
                     ?>
                     
                 </div>
-                <!-- <div class="content-pagination">
-                    <div class="pagination">
-                        <a href="#" id="pagination-double-prev" class="pagination-button"><<</a>
-                        <a href="#" id="pagination-prev" class="pagination-button"><</a>
-                        <a href="#" id="pagination-page-1" class="pagination-button ">1</a>
-                        <a href="#" id="pagination-page-2" class="pagination-button">2</a>
-                        <a href="#" id="pagination-page-3" class="pagination-button active">3</a>
-                        <a href="#" id="pagination-page-4" class="pagination-button">4</a>
-                        <a href="#" id="pagination-page-5" class="pagination-button">5</a>
-                        <a href="#" id="pagination-next" class="pagination-button">></a>
-                        <a href="#" id="pagination-double-next" class="pagination-button">>></a>
-                    </div>
-                </div> -->
+                <div class="content-pagination">
+                    <ul id="pagination-demo" class="pagination">
+                    </ul>
+                </div>
             </div>
             <div class="content-cate">
                 <div class="cate-group">

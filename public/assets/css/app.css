@@ -34,7 +34,7 @@ body {
       color: #ffffff;
       position: relative;
       margin-right: 18px;
-      cursor: pointer; }
+      text-decoration: none; }
       body .content .content-title .filter.active:after, body .content .content-title .filter:hover:after {
         background-color: #fd9b38;
         content: "";

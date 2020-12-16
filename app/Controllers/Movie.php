@@ -46,18 +46,22 @@ class Movie extends BaseController
 
 	public function index()
 	{
+		$order = 'all';
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
 		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
 
+		if(isset($_GET['order']) && $_GET['order'] == 'top-view') {
+			$order = 'top-view';
+		}
+
 		$chk_act = [
 			'home' => 'active',
 			'anime' => '',
 			'contract' => ''
 		];
-
 		$header_data = [
 			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
@@ -70,14 +74,12 @@ class Movie extends BaseController
 			'setting' => $setting
 		];
 
-		// var_dump($list_popular);
-		// exit;
-
-		$list = $this->VideoModel->get_list_video($this->mvbranch);
+		$list = $this->VideoModel->get_list_video($this->mvbranch, '', 1, $order);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
 
 		$body_data = [
+			'order' => $order,
 			'branch' => $this->mvbranch,
 			'url_loadmore' => base_url('moviedata'),
 			'path_thumbnail' => $this->path_thumbnail,
@@ -284,8 +286,6 @@ class Movie extends BaseController
 
 	public function categorylist() //ต้นแบบ หน้า cate / search
 	{
-		var_dump($_GET['keyword']);
-		exit;
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
@@ -501,7 +501,7 @@ class Movie extends BaseController
 			'playerUrl' 	=> $playerUrl
 		];
 
-		echo view('player.php', $data);
+		echo view('movie/player.php', $data);
 	}
 
 	public function countView($id)

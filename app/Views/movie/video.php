@@ -19,7 +19,6 @@
     </div>
     <!-- <pre>
         <?
-            var_dump($videodata);
             $url_name = urlencode(str_replace(' ', '-', $videodata['movie_thname']))
         ?>
     </pre> -->
@@ -31,12 +30,10 @@
                 <div class="preview-rate">MYMOVIELIST: <span><? echo $videodata['movie_ratescore'] ?>/10</span></div>
                 <div class="preview-view">VIEW: <span><? echo $videodata['movie_view'] ?></span></div>
                 <div class="preview-sound">SOUND: <span><? echo $videodata['movie_sound'] ?></span></div>
-                <div class="preview-shared">SHARE: 
-                    <a href="#"><i class="fab fa-facebook-square"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter-square"></i></a>
-                    <a href="#"><i class="fab fa-tumblr-square"></i></a>
-                    <a href="#"><i class="fab fa-google-plus"></i></a>
+                <div class="preview-shared">SHARE:
+                    <a href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=<?= urlencode(base_url(uri_string())) ?>&display=popup&ref=plugin&src=share_button" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://twitter.com/share?hashtags=ดูหนังออนไลน์,ดูหนังใหม่&text=<?= $url_name ?>" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                    <a href="https://social-plugins.line.me/lineit/share?url=<?= urlencode(base_url(uri_string())) ?>" target="_blank"><i class="fab fa-line"></i></a>
                 </div>
                 <div class="preview-description"><? echo $videodata['movie_des'] ?></div>
             </div>
@@ -100,11 +97,12 @@
                     <? echo $videodata['movie_thname'] ?>
                 </div>
 
-                <video src="#" width="100%"></video>
+                <iframe id="player" width="100%"  class="player" src="<?= base_url('player/' . $videodata['movie_id'] . '/' . $index) ?>" scrolling="no" frameborder="0" allowfullscreen="yes"></iframe>
+
 
                 <div class="btn-group">
-                    <button class="btn">หนังไม่เล่น กดที่นี่ <i class="fas fa-redo"></i></button>
-                    <button class="btn">แจ้งหนังเสีย</button>
+                    <button class="btn" onclick="document.getElementById('player').contentWindow.location.reload();">หนังไม่เล่น กดที่นี่ <i class="fas fa-redo"></i></button>
+                    <button class="btn" onclick="get_Report()">แจ้งหนังเสีย</button>
                 </div>
 
                 <?
@@ -150,7 +148,7 @@
                 </div>
 
                 <div class="cate-list">
-                    ป้ายกำกับ : <span><a href="#">หนัง</a> | <a href="#">อนิเมะ</a> | <a href="#">ไทย</a> | <a href="#">ซับ</a></span></span>
+                    ป้ายกำกับ : <span><a href="#">หนัง</a> | <a href="#">หนัง</a> | <a href="#">ไทย</a> | <a href="#">ซับ</a></span></span>
                 </div>
 
             </div>
@@ -208,3 +206,29 @@
         </div>
     </div>
 </section>
+
+
+<script>
+  function get_Report() {
+    var movie_id = '<?= $videodata['movie_id'] ?>';
+    var movie_name = '<?= $videodata['movie_thname'] ?>';
+    var movie_ep_name = '';
+    <?php if($videodata['movie_type']=='se'){ ?>
+      movie_ep_name = '<?= $videodata['name_ep'][$index] ?>';
+    <?php } ?>
+
+    $.ajax({
+      url: "<?= base_url('saveReport') ?>",
+      data: {
+        movie_id: movie_id,
+        movie_name: movie_name,
+        movie_ep_name: movie_ep_name
+      },
+      type: 'POST',
+      async: false,
+      success: function(data) {
+        alert('แจ้งเรียบร้อยจะดำเนินการโดยเร็ว');
+      }
+    });
+  }
+</script>

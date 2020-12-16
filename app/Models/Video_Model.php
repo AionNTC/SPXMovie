@@ -117,7 +117,7 @@ class Video_Model extends Model
         return get_pagination($sql, $page, $perpage, $total);
     }
 
-    public function get_list_video($branchid, $keyword = "", $page = 1)
+    public function get_list_video($branchid, $keyword = "", $page = 1, $order = "")
     {
         $year = date("Y");
 
@@ -129,14 +129,14 @@ class Video_Model extends Model
             $sql_where = " AND REPLACE(CONCAT_WS('',`$this->table_movie`.movie_thname, `$this->table_movie`.movie_enname, `$this->table_movie`.movie_year ), \"'\", \"\'\") LIKE '%$keyword%' ";
         }
 
-        $sql = "SELECT
-                    *
-                FROM
-                $this->table_movie
-                WHERE
-                    `$this->table_movie`.branch_id = '$branchid' $sql_where 
-                    AND `$this->table_movie`.movie_active = '1' 
-                ORDER BY `$this->table_movie`.movie_year DESC, `$this->table_movie`.movie_create DESC ";
+        $sql = "SELECT * FROM $this->table_movie
+                WHERE `$this->table_movie`.branch_id = '$branchid' $sql_where 
+                AND `$this->table_movie`.movie_active = '1' ";
+        if($order == 'top-view') {
+            $sql .= "ORDER BY cast(`$this->table_movie`.movie_view as unsigned) DESC";
+        } else {
+            $sql .= " ORDER BY `$this->table_movie`.movie_year DESC, `$this->table_movie`.movie_create DESC ";
+        }
 
         $query = $this->db->query($sql);
         $total = count($query->getResultArray());

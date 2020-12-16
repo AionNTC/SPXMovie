@@ -1,7 +1,6 @@
     <section id="homepage">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            
             <?
                 foreach($list_popular as $popular) { 
                     $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
@@ -16,8 +15,7 @@
     <div class="wrapper">
         <section class="container">
 
-            <marquee behavior="scroll" direction="left"  class="caption">WWW.SPXMOVIE.COM ยินดีต้อนรับ ขอต้อนรับเข้าสู่ แหล่งรวมอนิเมะที่มีคุณภาพ ระดับความชัดสูง ดูไได้ไหลลื่นไม่มีขีดสุด ขอให้ทุกท่านมีความสุขกับการรับชมภาพยนต์</marquee>
-
+            <marquee behavior="scroll" direction="left"  class="caption">WWW.SPXMOVIE.COM ยินดีต้อนรับ ขอต้อนรับเข้าสู่ แหล่งรวมหนังที่มีคุณภาพ ระดับความชัดสูง ดูไได้ไหลลื่นไม่มีขีดสุด ขอให้ทุกท่านมีความสุขกับการรับชมภาพยนต์</marquee>
             <?
                 if( !empty($adstop) ){
                     foreach($adstop as $ads){
@@ -40,8 +38,8 @@
             <div class="content">
                 <div class="content-title">
                     <div class="title">หนังอัพเดทล่าสุด</div>
-                    <div class="filter active">ALL MOVIE</div>
-                    <div class="filter">TOP MOVIE</div>
+                    <a href="<?php echo base_url() ?>" class="filter <? if($order == 'all') echo 'active'; ?>">ALL MOVIE</a>
+                    <a href="<?php echo base_url().'?order=top-view' ?>" class="filter <? if($order == 'top-view') echo 'active'; ?>">TOP MOVIE</a>
                 </div>
                 <div class="content-data">
                     <div class="content-list">

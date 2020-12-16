@@ -75,13 +75,16 @@ class Movie extends BaseController
 
 		$list = $this->VideoModel->get_list_video($this->mvbranch);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
+		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
 
 		$body_data = [
+			'branch' => $this->mvbranch,
 			'url_loadmore' => base_url('moviedata'),
 			'path_thumbnail' => $this->path_thumbnail,
 			'list' => $list,
 			'adsbottom' => $adsbottom,
 			'path_ads' => $this->path_ads,
+			'adstop' => $adstop,
 		];
 
 
@@ -99,6 +102,7 @@ class Movie extends BaseController
 		$videinterest = $this->VideoModel->get_video_interest($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
+		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
 
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
 		$date = get_date($videodata['movie_create']);
@@ -131,11 +135,13 @@ class Movie extends BaseController
 			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
 			'setting' => $setting,
+			'list_popular' => $list_popular,
 			'list_category' => $list_category,
 			'chk_act' => $chk_act,
 		];
 
 		$body_data = [
+			'branch' => $this->mvbranch,
 			'url_loadmore' => base_url('moviedata') ,
 			'path_thumbnail' => $this->path_thumbnail,
 			'videodata' => $videodata,
@@ -162,6 +168,7 @@ class Movie extends BaseController
 		$videinterest = $this->VideoModel->get_video_interest($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
+		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
 
 		if($epname==''){
 			$lastep = count($series['epdata']);
@@ -200,10 +207,12 @@ class Movie extends BaseController
 			'path_setting' => $this->path_setting,
 			'setting' => $setting,
 			'list_category' => $list_category,
+			'list_popular' => $list_popular,
 			'chk_act' => $chk_act,
 		];
 
 		$body_data = [
+			'branch' => $this->mvbranch,
 			'url_loadmore' => base_url('moviedata') ,
 			'path_thumbnail' => $this->path_thumbnail,
 			'videodata' => $series,
@@ -427,8 +436,6 @@ class Movie extends BaseController
 			'list' => $list,
 			'adsbottom' => $adsbottom,
 			'path_ads' => $this->path_ads,
-			'path_ads' => $this->path_ads,
-
 		];
 
 		echo view('templates/header.php', $header_data);
@@ -444,6 +451,7 @@ class Movie extends BaseController
 
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
+		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
 
 		$chk_act = [
 			'home' => '',
@@ -459,13 +467,12 @@ class Movie extends BaseController
 			'path_setting' => $this->path_setting,
 			'setting' => $setting,
 			'list_category' => $list_category,
+			'list_popular' => $list_popular,
+			'adsbottom' => $adsbottom,
 			'chk_act' => $chk_act,
+			'urlrequests' => base_url().'/save_requests/',
+			'urlconads' => base_url().'/con_ads/',
 		];
-
-		// echo view('templates/header.php', $header_data);
-		// echo view('movie/video.php', $body_data);
-		// echo view('movie/footer.php');
-		// echo view('templates/footer.php');
 
 		echo view('templates/header.php', $header_data);
 		echo view('movie/contract.php');
@@ -511,21 +518,10 @@ class Movie extends BaseController
 
 	public function con_ads()
 	{
-
-		
-		$chk_ads_con_name = validate($_POST['ads_con_name']);
-		$chk_ads_con_email = validate($_POST['ads_con_email']);
-		$chk_ads_con_line = validate($_POST['ads_con_line']);
-		$chk_ads_con_tel = validate($_POST['ads_con_tel']);
-
 		$ads_con_name =$_POST['ads_con_name'];
 		$ads_con_email = $_POST['ads_con_email'];
 		$ads_con_line = $_POST['ads_con_line'];
 		$ads_con_tel = $_POST['ads_con_tel'];
-
-		// print_r($_POST);
-		// die;
-
 
 		$this->VideoModel->con_ads($this->mvbranch, $ads_con_name, $ads_con_email, $ads_con_line, $ads_con_tel);
 	}

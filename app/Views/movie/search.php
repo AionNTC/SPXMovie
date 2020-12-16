@@ -135,7 +135,9 @@
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
                                     <div class="thumbnail-rate"><? echo $score ?>/100</div>
-                                    <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
+                                    <? if(isset($sound)) { ?>
+                                        <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
+                                    <? } ?>
                                 </div>
                             </a>
                         <? } ?>

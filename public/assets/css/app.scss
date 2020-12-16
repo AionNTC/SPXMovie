@@ -2,6 +2,9 @@ body {
     font-family: 'Kanit', sans-serif;
     background-color: #0f0f11;
     margin: 0;
+    img {
+        max-width: 100%;
+    }
     .wrapper {
         width: 100%;
         margin: 0 auto;
@@ -552,6 +555,7 @@ footer {
 }
 
 #video {
+    margin-bottom: 20px;
     .preview {
         padding: 40px 0;
         &:after {
@@ -721,6 +725,7 @@ footer {
 }
 
 #contract {
+    margin-bottom: 20px;
     .tab-container {
         width: 75%;
         margin: 0 auto;
@@ -779,6 +784,7 @@ footer {
                 
                 input {
                     background-color: transparent;
+                    color: #ffffff;
                 }
 
                 label {

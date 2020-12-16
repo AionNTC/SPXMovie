@@ -20,12 +20,19 @@
 
             <?
                 if( !empty($adstop) ){
-                foreach($adstop as $ads){
+                    foreach($adstop as $ads){
+                        if(substr($ads['ads_picture'], 0, 4) == 'http'){
+                            $ads_picture = $ads['ads_picture'];
+                        }else{
+                            $ads_picture = $path_ads . $ads['ads_picture'];
+                        }
             ?>
-            <a href="#"><img src="https://dummyimage.com/1286x218/b8c200/000000&text=Ads"></a>
+                <a href="onClickAds(<?= $ads['ads_id']; ?>, <?= $branch ?>)" href="<?=$ads['ads_url']?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
+                    <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
+                </a>
             <?
-            }
-            }
+                    }
+                }
             ?>
         </section>
 
@@ -151,7 +158,9 @@
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
                                     <div class="thumbnail-rate"><? echo $score ?>/100</div>
-                                    <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
+                                    <? if(isset($sound)) { ?>
+                                        <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
+                                    <? } ?>
                                 </div>
                             </a>
                         <? } ?>

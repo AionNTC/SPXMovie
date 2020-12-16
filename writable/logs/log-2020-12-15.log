@@ -131,3 +131,93 @@ CRITICAL - 2020-12-15 22:26:17 --> Undefined variable: backURL
 #6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2020-12-15 22:49:00 --> Undefined variable: list_popular
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\contract.php(52): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 52, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/contract....', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(466): view('movie/contract....')
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 22:52:31 --> Undefined variable: list_popular
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\video.php(141): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 141, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/video.php', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(152): view('movie/video.php', Array)
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('9921', 'Friend-Request-...')
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 23:51:22 --> php_network_getaddresses: getaddrinfo failed: No such host is known. 
+#0 C:\xampp\htdocs\movie\spxmovie\system\Database\BaseConnection.php(377): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\movie\spxmovie\system\Database\BaseConnection.php(643): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\movie\spxmovie\app\Models\Video_Model.php(409): CodeIgniter\Database\BaseConnection->query('SELECT * FROM `...')
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(444): App\Models\Video_Model->get_setting(1)
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 23:51:31 --> php_network_getaddresses: getaddrinfo failed: No such host is known. 
+#0 C:\xampp\htdocs\movie\spxmovie\system\Database\BaseConnection.php(377): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\movie\spxmovie\system\Database\BaseConnection.php(643): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\movie\spxmovie\app\Models\Video_Model.php(409): CodeIgniter\Database\BaseConnection->query('SELECT * FROM `...')
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(444): App\Models\Video_Model->get_setting(1)
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 23:51:52 --> Undefined variable: sound
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\contract.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/contract....', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(473): view('movie/contract....')
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 23:51:57 --> Undefined variable: sound
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\contract.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/contract....', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(473): view('movie/contract....')
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 23:51:58 --> Undefined variable: sound
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\contract.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/contract....', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(473): view('movie/contract....')
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 23:52:09 --> Undefined variable: sound
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\contract.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/contract....', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(473): view('movie/contract....')
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-15 23:53:22 --> Undefined variable: sound
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\contract.php(83): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 83, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/contract....', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(473): view('movie/contract....')
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->contract()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

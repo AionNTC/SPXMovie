@@ -1,0 +1,56 @@
+CRITICAL - 2020-12-16 00:08:34 --> Call to undefined function App\Controllers\validate()
+#0 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->con_ads()
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-12-16 00:08:36 --> Call to undefined function App\Controllers\validate()
+#0 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->con_ads()
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-12-16 00:08:45 --> Call to undefined function App\Controllers\validate()
+#0 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->con_ads()
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-12-16 00:09:50 --> Call to undefined function App\Controllers\validate()
+#0 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->con_ads()
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-12-16 00:09:57 --> Call to undefined function App\Controllers\validate()
+#0 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->con_ads()
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-12-16 00:09:57 --> Call to undefined function App\Controllers\validate()
+#0 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->con_ads()
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2020-12-16 00:22:00 --> Undefined variable: branch
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\index.php(30): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/index.php', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(91): view('movie/index.php', Array)
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-16 00:27:05 --> Undefined variable: branch
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\video.php(12): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/video.php', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(157): view('movie/video.php', Array)
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('20015', 'Dragon-Rider-%2...')
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}

@@ -373,8 +373,7 @@ header .menu-bar {
     width: 50%;
     float: right;
     height: 80px;
-    text-align: right;
-    cursor: pointer; }
+    text-align: right; }
     @media (max-width: 992px) {
       header .menu-bar .search {
         height: 60px; } }
@@ -382,7 +381,8 @@ header .menu-bar {
       color: #fd9b38;
       background-color: #3d3e40;
       padding: 22px 20px;
-      font-size: 36px; }
+      font-size: 36px;
+      cursor: pointer; }
       @media (max-width: 992px) {
         header .menu-bar .search .fa-search {
           padding: 16px 16px;

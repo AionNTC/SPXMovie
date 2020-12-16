@@ -474,7 +474,6 @@ header {
             float: right;
             height: 80px;
             text-align: right;
-            cursor: pointer;
             @media (max-width: 992px) {
                 height: 60px;
             }
@@ -483,6 +482,7 @@ header {
                 background-color: #3d3e40;
                 padding: 22px 20px;
                 font-size: 36px;
+                cursor: pointer;
                 
                 @media (max-width: 992px) {
                     padding: 16px 16px;

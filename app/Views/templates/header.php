@@ -74,8 +74,15 @@
                 <div class="search">
                     <i class="fas fa-search"></i>
                     <div class="search-form">
-                        <form action="">
-                            <input type="text">
+                        <form id="movie-formsearch">
+                        <?php
+                            if (!empty($keyword)) {
+                                $value = $keyword;
+                            } else {
+                                $value = '';
+                            }
+                        ?>
+                            <input type="text" id="movie-search" placeholder="Search..." value="<?php echo $value ?>" autocomplete="off">
                             <button class="btn">ค้นหา</button>
                         </form>
                     </div>

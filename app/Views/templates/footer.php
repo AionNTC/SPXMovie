@@ -65,7 +65,23 @@
             }
         }
 
-        $(document).ready(function() {
+            
+        function goSearch() {
+            var search = $.trim($("#movie-search").val())
+
+            if (search) {
+                window.location.href = "/search/" + $("#movie-search").val();
+            } else {
+                window.location.href = "<?= base_url() ?>";
+            }
+        }
+
+        $(document).ready(function() {    
+            $('#movie-formsearch').submit(function(e) {
+                goSearch();
+                return false; //<---- Add this line
+            });
+
             $('.navbar').on('click', '.navbar-toggler:not(".disabled")',function() {
                 $('.navbar .navbar-toggler').addClass('disabled')
                 setTimeout(() => {
@@ -77,7 +93,7 @@
                 }     
             });
 
-            $('.navbar').on('click', '.search:not(".disabled")',function() {
+            $('.navbar').on('click', '.fas.fa-search:not(".disabled")',function() {
                 $('.navbar .search').addClass('disabled')
                 setTimeout(() => {
                     $('.navbar .search').removeClass('disabled')

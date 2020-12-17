@@ -148,7 +148,24 @@
                 </div>
 
                 <div class="cate-list">
-                    ป้ายกำกับ : <span><a href="#">หนัง</a> | <a href="#">หนัง</a> | <a href="#">ไทย</a> | <a href="#">ซับ</a></span></span>
+                    ป้ายกำกับ : 
+                    <span>
+                    <?
+                        $cateneme = '';
+                        $numItems = count($videodata['cate_data']);
+                        $i = 0;
+                        foreach ($videodata['cate_data'] as $key => $val) {
+                    ?>
+                        <a style="cursor:pointer;" onclick="goCate('<?= $val['category_id'] ?>', '<?= $val['category_name'] ?>')" alt="<?= $val['category_name'] ?>"><? echo $val['category_name'] ?></a>
+                    <?
+                            if(++$i != $numItems) {
+                    ?>
+                                |
+                    <?
+                            }
+                        }
+                    ?>  
+                    </span>
                 </div>
 
             </div>

@@ -356,13 +356,14 @@ header .menu-bar {
         max-width: 960px; } }
     header .menu-bar .collapse.navbar-collapse ul li {
       display: inline-block;
-      padding: 25px 32px 24px;
-      cursor: pointer;
       position: relative; }
       @media (max-width: 992px) {
         header .menu-bar .collapse.navbar-collapse ul li {
           padding: 14px;
           display: block; } }
+      header .menu-bar .collapse.navbar-collapse ul li a {
+        padding: 25px 32px 24px;
+        display: block; }
       header .menu-bar .collapse.navbar-collapse ul li.active a {
         color: #ffffff; }
       @media (min-width: 992px) {

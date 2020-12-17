@@ -448,11 +448,13 @@ header {
                 }
                 li {
                     display: inline-block;
-                    padding: 25px 32px 24px;
-                    cursor: pointer;
                     position: relative;
                     @media (max-width: 992px) {                        
                         padding: 14px;;
+                        display: block;
+                    }
+                    a {
+                        padding: 25px 32px 24px;
                         display: block;
                     }
                     &.active {

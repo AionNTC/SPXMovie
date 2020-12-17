@@ -144,3 +144,50 @@ CRITICAL - 2020-12-16 04:11:20 --> Undefined variable: order
 #6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2020-12-16 21:56:34 --> unlink(C:\xampp\htdocs\movie\spxmovie\writable\debugbar/debugbar_1608113523.json): No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(C:\\xampp...', 'C:\\xampp\\htdocs...', 106, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\Debug\Toolbar\Collectors\History.php(106): unlink('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Debug\Toolbar.php(481): CodeIgniter\Debug\Toolbar\Collectors\History->setFiles(1608177390, 20)
+#3 C:\xampp\htdocs\movie\spxmovie\system\Debug\Toolbar.php(454): CodeIgniter\Debug\Toolbar->format(Array, 'html')
+#4 C:\xampp\htdocs\movie\spxmovie\app\Config\Events.php(44): CodeIgniter\Debug\Toolbar->respond()
+#5 [internal function]: CodeIgniter\Events\Events::Config\{closure}()
+#6 C:\xampp\htdocs\movie\spxmovie\system\Events\Events.php(188): call_user_func(Object(Closure))
+#7 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(287): CodeIgniter\Events\Events::trigger('pre_system')
+#8 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-12-16 22:04:02 --> Undefined index: category_name
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\video.php(151): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 151, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/video.php', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(160): view('movie/video.php', Array)
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('20014', 'The-Lie-%282018...')
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-16 22:09:01 --> syntax error, unexpected '.'
+#0 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/video.php', Array, true)
+#1 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(160): view('movie/video.php', Array)
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('20014', 'The-Lie-%282018...')
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2020-12-16 22:09:24 --> Array to string conversion
+#0 C:\xampp\htdocs\movie\spxmovie\app\Views\movie\video.php(154): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\xampp\\htdocs...', 154, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\View\View.php(236): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/video.php', Array, true)
+#3 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(160): view('movie/video.php', Array)
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('20014', 'The-Lie-%282018...')
+#5 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2020-12-16 22:11:49 --> syntax error, unexpected '}'
+#0 C:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/video.php', Array, true)
+#1 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Movie.php(160): view('movie/video.php', Array)
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('20014', 'The-Lie-%282018...')
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#4 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}

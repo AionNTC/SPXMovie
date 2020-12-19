@@ -43,8 +43,6 @@ class Anime extends BaseController
 
 		$list_category = $this->AnimeModel->get_category($this->anbranch);
 		$list_popular = $this->AnimeModel->get_list_popular($this->anbranch);
-		// print_r($list_popular);
-		// exit;
 		
 		if(isset($_GET['order']) && $_GET['order'] == 'top-view') {
 			$order = 'top-view';
@@ -107,8 +105,7 @@ class Anime extends BaseController
 		$date = get_date($series['movie_create']);
 
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
-		// print_r($series);
-		// exit;
+
 		$chk_act = [
 			'home' => '',
 			'anime' => 'active',
@@ -287,9 +284,6 @@ class Anime extends BaseController
 			'setting' => $setting
 		];
 
-		// print_r($list);
-		// exit;
-
 		$body_data = [
 			'url_loadmore' => base_url('moviedata_search'),
 			'path_thumbnail' => $this->path_thumbnail,
@@ -354,8 +348,7 @@ class Anime extends BaseController
 		$video_data = $this->AnimeModel->get_id_video($id);
 		$series = $this->AnimeModel->get_ep_series($id);
 		$adsvideo = $this->AnimeModel->get_adsvideolist($this->backURL);
-		// echo '<pre>' . print_r($anime, true) . '</pre>';
-		// 		die;
+		
 		$playerUrl =$video_data['movie_thmain'];
 
 		
@@ -392,10 +385,6 @@ class Anime extends BaseController
 		$ads_con_email = $_POST['ads_con_email'];
 		$ads_con_line = $_POST['ads_con_line'];
 		$ads_con_tel = $_POST['ads_con_tel'];
-
-		// print_r($_POST);
-		// die;
-
 
 		$this->AnimeModel->con_ads($this->anbranch, $ads_con_name, $ads_con_email, $ads_con_line, $ads_con_tel);
 	}

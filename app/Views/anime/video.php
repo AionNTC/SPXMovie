@@ -242,12 +242,12 @@
     var movie_id = '<?= $videodata['movie_id'] ?>';
     var movie_name = '<?= $videodata['movie_thname'] ?>';
     var movie_ep_name = '';
-    <?php if($videodata['movie_type']=='se'){ print_r($videodata) ?>
+    <?php if($videodata['movie_type']=='se'){ ?>
         movie_ep_name = '<?= $videodata['ep_data'][$index]['NameEp'] ?>';
     <?php } ?>
 
     $.ajax({
-      url: "<?= base_url('saveReport') ?>",
+      url: "<?= base_url('anime/saveReport') ?>",
       data: {
         movie_id: movie_id,
         movie_name: movie_name,

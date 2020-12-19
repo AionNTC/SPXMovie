@@ -357,9 +357,6 @@ class Movie extends BaseController
 			'setting' => $setting
 		];
 
-		// print_r($list);
-		// exit;
-
 		$body_data = [
 			'url_loadmore' => base_url('moviedata_search'),
 			'path_thumbnail' => $this->path_thumbnail,
@@ -461,8 +458,7 @@ class Movie extends BaseController
 		$video_data = $this->VideoModel->get_id_video($id);
 		$series = $this->VideoModel->get_ep_series($id);
 		$adsvideo = $this->VideoModel->get_adsvideolist($this->backURL);
-		// echo '<pre>' . print_r($anime, true) . '</pre>';
-		// 		die;
+
 		$playerUrl =$video_data['movie_thmain'];
 
 		if ($index != "a") {

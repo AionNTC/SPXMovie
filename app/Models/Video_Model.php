@@ -94,7 +94,7 @@ class Video_Model extends Model
     public function get_list_video_search($keyword = "", $branchid, $page)
     {
         $sql_where = " ";
-        // ECHO '<pre>'.print_r($keyword,true).'</pre>' ;die;
+        
         $year = date("Y");
 
         if ($keyword != "") {
@@ -165,8 +165,7 @@ class Video_Model extends Model
         $query = $this->db->query($sql);
         $total = count($query->getResultArray());
         $perpage = 10;
-        //   print_r($query->getResultArray());die;
-        // return 
+        
         return get_pagination($sql, $page, $perpage, $total);
     }
 
@@ -346,9 +345,6 @@ class Video_Model extends Model
             $sql_where .
             "ORDER BY `$this->table_movie`.movie_year DESC ";
 
-
-
-        // print_r($sql);die;
 
         $query = $this->db->query($sql);
         $total = count($query->getResultArray());
@@ -576,8 +572,6 @@ class Video_Model extends Model
         $query = $this->db->query($sql);
 
 
-
-        //   print_r()
 
         return $query->getResultArray();
     }

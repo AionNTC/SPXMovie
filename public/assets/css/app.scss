@@ -740,78 +740,83 @@ footer {
 
 #contract {
     margin-bottom: 20px;
-    .tab-container {
-        width: 75%;
+    height: calc(100vh - 361px);
+    .content-data {
+        float: none;
         margin: 0 auto;
-        @media (max-width: 767px) {
-            margin-top: 60px;
-        }
-        @media (max-width: 1024px) {
-            width: 100%;
-            margin-bottom: 30px;
-        }
-        .tab-header {
-            font-size: 32px;
-            color: #3c3d3f;
-            text-align: center;
-            
-            @media (min-width: 280px) and (max-width: 375px) {
-                font-size: 24px;
+        .tab-container {
+            width: 75%;
+            margin: 0 auto;
+            @media (max-width: 767px) {
+                margin-top: 60px;
             }
-            .tab-title {
-                display: inline-block;
-                position: relative;
-                cursor: pointer;
-                &.active {
-                    color: #fc9c38;
-                }
-                &:not(:last-child) {
-                    padding-right: 12px;
-                    &:after {
-                        content: "";
-                        display: block;
-                        width: 2px;
-                        height: 100%;
-                        background-color: #fc9c38;
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                    }
-                }
+            @media (max-width: 1024px) {
+                width: 100%;
+                margin-bottom: 30px;
             }
-        }
-        .tab-body {
-            margin-top: 30px;
-            .tab-content {
-                display: none;
-                &.active {
-                    display: block;
-                }
-
-                .movie-formcontract {
-                    width: 70%;
-                    margin: 0 auto;
-                    @media (max-width: 1024px) {
-                        width: 100%;
-                    }
-                }
+            .tab-header {
+                font-size: 32px;
+                color: #3c3d3f;
+                text-align: center;
                 
-                input {
-                    background-color: transparent;
-                    color: #ffffff;
+                @media (min-width: 280px) and (max-width: 375px) {
+                    font-size: 24px;
                 }
-
-                label {
-                    font-size: 22px;
-                    color: #bcb1b5;
+                .tab-title {
+                    display: inline-block;
+                    position: relative;
+                    cursor: pointer;
+                    &.active {
+                        color: #fc9c38;
+                    }
+                    &:not(:last-child) {
+                        padding-right: 12px;
+                        &:after {
+                            content: "";
+                            display: block;
+                            width: 2px;
+                            height: 100%;
+                            background-color: #fc9c38;
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                        }
+                    }
                 }
-
-                button {
-                    margin-top: 15px;
-                    background-color: rgba(255, 255, 255, 0.4);
-                    font-weight: bold;
-                    color: #ffffff;
-                    padding: 2px 12px;                
+            }
+            .tab-body {
+                margin-top: 30px;
+                .tab-content {
+                    display: none;
+                    &.active {
+                        display: block;
+                    }
+    
+                    .movie-formcontract {
+                        width: 70%;
+                        margin: 0 auto;
+                        @media (max-width: 1024px) {
+                            width: 100%;
+                        }
+                    }
+                    
+                    input {
+                        background-color: transparent;
+                        color: #ffffff;
+                    }
+    
+                    label {
+                        font-size: 22px;
+                        color: #bcb1b5;
+                    }
+    
+                    button {
+                        margin-top: 15px;
+                        background-color: rgba(255, 255, 255, 0.4);
+                        font-weight: bold;
+                        color: #ffffff;
+                        padding: 2px 12px;                
+                    }
                 }
             }
         }

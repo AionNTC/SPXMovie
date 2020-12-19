@@ -4,13 +4,20 @@
             <div class="content-data">
                 <div class="tab-container">
                     <div class="tab-header">
-                        <div data-tab="request" class="tab-title active">ขอหนัง</div>
+                        <div data-tab="request_movie" class="tab-title active">ขอหนัง</div>
+                        <div data-tab="request_anime" class="tab-title">ขออนิเมะ</div>
                         <div data-tab="ads" class="tab-title  ">ติดต่อลงโฆษณา</div>
                     </div>
                     <div class="tab-body">
-                        <div data-tab="request" class="tab-content active">
+                        <div data-tab="request_movie" class="tab-content active">
                             <form class="movie-formcontract" novalidate method="POST" action="">
-                                <input id="request_text" name="request_text" type="text" class="form-control" required autocomplete="off">
+                                <input id="request_movie_text" name="request_movie_text" type="text" class="form-control" required autocomplete="off">
+                                <div class="text-right"><button class="btn" type="submit" class="movie-btnrequest">ตกลง</button></div>
+                            </form>
+                        </div>
+                        <div data-tab="request_anime" class="tab-content">
+                            <form class="movie-formcontract" novalidate method="POST" action="">
+                                <input id="request_anime_text" name="request_anime_text" type="text" class="form-control" required autocomplete="off">
                                 <div class="text-right"><button class="btn" type="submit" class="movie-btnrequest">ตกลง</button></div>
                             </form>
                         </div>
@@ -43,64 +50,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="content-cate">
-                <div class="cate-group">
-                    <div class="cate-title">หนังแนะนำ</div>
-                    
-                        <?
-                            $list_popular_slice = array_slice($list_popular, 0, 5, true);
-                            foreach($list_popular_slice as $popular) {
-                                if (!empty($popular['movie_sound'])) {
-                                    $sound = $popular['movie_sound'];
-                                    if (strtolower($popular['movie_sound'])=='th' || 
-                                    strtolower($popular['movie_sound'])=='thai' ||
-                                    strpos(strtolower($popular['movie_sound']),'thai')==true ||
-                                    strtolower($popular['movie_sound'])=='ts') {
-                                        $sound = 'พากษ์ไทย';
-                                    } else if (strtolower($popular['movie_sound'])=='eng') {
-                                        $sound = 'SOUNDTRACK';
-                                    } else if (strtolower($popular['movie_sound'])=='st' ||
-                                    strpos(strtolower($popular['movie_sound']),'(t)')==true) {
-                                        $sound = 'ซับไทย';
-                                    }
-                                }
-
-                                $score = $popular['movie_ratescore'];
-                                if( strpos($score,'.') ){
-                                    $score = substr($score,0,3);
-                                }else{
-                                    $score = substr($score,0);
-                                }
-
-                                if (substr($popular['movie_picture'], 0, 4) == 'http') {
-                                    $movie_picture = $popular['movie_picture'];
-                                } else {
-                                    $movie_picture = $path_thumbnail . $popular['movie_picture'];
-                                }
-                                
-                                $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
-                        ?>
-                            <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '<?=$popular['movie_type']?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="thumbnail-cate">
-                                <img style="max-width: 86px;" src="<? echo $movie_picture ?>">
-                                <div class="thumbnail-text">
-                                    <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
-                                    <div class="thumbnail-rate"><? echo $score ?>/100</div>
-                                    <? if(isset($sound)) { ?>
-                                        <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
-                                    <? } ?>
-                                </div>
-                            </a>
-                        <? } ?>
-                    
-                </div>  
-                <div class="cate-group">
-                    <div class="cate-title">หมวดหมู่</div>
-                    <? foreach($list_category as $cate) { ?>
-                        <a onclick="goCate('<?= $cate['category_id'] ?>', '<?= $cate['category_name'] ?>')" alt="<?= $cate['category_name'] ?>" title="<?= $cate['category_name'] ?>" class="fullline-cate"><? echo $cate['category_name']; ?> <span><? echo $cate['movie_nb']; ?></span></a>        
-                    <? } ?>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -126,7 +75,8 @@
         $(".movie-formcontract").on("submit", function() {
 
             var form = $(this)[0];
-            var request_text = $.trim($("#request_text").val());
+            var request_movie_text = $.trim($("#request_movie_text").val());
+            var request_anime_text = $.trim($("#request_anime_text").val());
             var ads_con_name = $.trim($("#ads_con_name").val());
             var ads_con_email = $.trim($("#ads_con_email").val());
             var ads_con_line = $.trim($("#ads_con_line").val());
@@ -135,17 +85,34 @@
             if (form.checkValidity() === false) {
                 event.preventDefault();
                 event.stopPropagation();
-            } else if (request_text) {
+            } else if (request_movie_text) {
                 $.ajax({
                     url: "<?php echo $urlrequests  ?>",
                     type: 'POST',
                     async: false,
                     data: {
-                        request_text: request_text
+                        request_movie_text: request_movie_text
                     },
                     success: function(data) {
                         alert('ดำเนินการเรียบร้อยแล้วครับ')
                         setInterval(function(){  window.location.href = "<?= base_url() ?>";}, 2000);
+                        
+                        return false;
+                    }
+                });
+                return false;
+
+            } else if (request_anime_text) {
+                $.ajax({
+                    url: "<?php echo $urlrequestanime  ?>",
+                    type: 'POST',
+                    async: false,
+                    data: {
+                        request_anime_text: request_anime_text
+                    },
+                    success: function(data) {
+                        alert('ดำเนินการเรียบร้อยแล้วครับ')
+                        setInterval(function(){  window.location.href = "<?= base_url().'/anime' ?>";}, 2000);
                         
                         return false;
                     }

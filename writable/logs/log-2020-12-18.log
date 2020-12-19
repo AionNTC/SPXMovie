@@ -124,3 +124,17 @@ CRITICAL - 2020-12-18 21:50:24 --> Undefined index: ep_data
 #6 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2020-12-18 23:28:23 --> Undefined index: request_text
+#0 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Anime.php(384): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 384, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Anime->save_requests()
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Anime))
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-12-18 23:28:41 --> Undefined index: request_text
+#0 C:\xampp\htdocs\movie\spxmovie\app\Controllers\Anime.php(384): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 384, Array)
+#1 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Anime->save_requests()
+#2 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Anime))
+#3 C:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

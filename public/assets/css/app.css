@@ -579,65 +579,69 @@ footer {
       margin-bottom: 20px; } }
 
 #contract {
-  margin-bottom: 20px; }
-  #contract .tab-container {
-    width: 75%;
+  margin-bottom: 20px;
+  height: calc(100vh - 361px); }
+  #contract .content-data {
+    float: none;
     margin: 0 auto; }
-    @media (max-width: 767px) {
-      #contract .tab-container {
-        margin-top: 60px; } }
-    @media (max-width: 1024px) {
-      #contract .tab-container {
-        width: 100%;
-        margin-bottom: 30px; } }
-    #contract .tab-container .tab-header {
-      font-size: 32px;
-      color: #3c3d3f;
-      text-align: center; }
-      @media (min-width: 280px) and (max-width: 375px) {
-        #contract .tab-container .tab-header {
-          font-size: 24px; } }
-      #contract .tab-container .tab-header .tab-title {
-        display: inline-block;
-        position: relative;
-        cursor: pointer; }
-        #contract .tab-container .tab-header .tab-title.active {
-          color: #fc9c38; }
-        #contract .tab-container .tab-header .tab-title:not(:last-child) {
-          padding-right: 12px; }
-          #contract .tab-container .tab-header .tab-title:not(:last-child):after {
-            content: "";
-            display: block;
-            width: 2px;
-            height: 100%;
-            background-color: #fc9c38;
-            position: absolute;
-            right: 0;
-            top: 0; }
-    #contract .tab-container .tab-body {
-      margin-top: 30px; }
-      #contract .tab-container .tab-body .tab-content {
-        display: none; }
-        #contract .tab-container .tab-body .tab-content.active {
-          display: block; }
-        #contract .tab-container .tab-body .tab-content .movie-formcontract {
-          width: 70%;
-          margin: 0 auto; }
-          @media (max-width: 1024px) {
-            #contract .tab-container .tab-body .tab-content .movie-formcontract {
-              width: 100%; } }
-        #contract .tab-container .tab-body .tab-content input {
-          background-color: transparent;
-          color: #ffffff; }
-        #contract .tab-container .tab-body .tab-content label {
-          font-size: 22px;
-          color: #bcb1b5; }
-        #contract .tab-container .tab-body .tab-content button {
-          margin-top: 15px;
-          background-color: rgba(255, 255, 255, 0.4);
-          font-weight: bold;
-          color: #ffffff;
-          padding: 2px 12px; }
+    #contract .content-data .tab-container {
+      width: 75%;
+      margin: 0 auto; }
+      @media (max-width: 767px) {
+        #contract .content-data .tab-container {
+          margin-top: 60px; } }
+      @media (max-width: 1024px) {
+        #contract .content-data .tab-container {
+          width: 100%;
+          margin-bottom: 30px; } }
+      #contract .content-data .tab-container .tab-header {
+        font-size: 32px;
+        color: #3c3d3f;
+        text-align: center; }
+        @media (min-width: 280px) and (max-width: 375px) {
+          #contract .content-data .tab-container .tab-header {
+            font-size: 24px; } }
+        #contract .content-data .tab-container .tab-header .tab-title {
+          display: inline-block;
+          position: relative;
+          cursor: pointer; }
+          #contract .content-data .tab-container .tab-header .tab-title.active {
+            color: #fc9c38; }
+          #contract .content-data .tab-container .tab-header .tab-title:not(:last-child) {
+            padding-right: 12px; }
+            #contract .content-data .tab-container .tab-header .tab-title:not(:last-child):after {
+              content: "";
+              display: block;
+              width: 2px;
+              height: 100%;
+              background-color: #fc9c38;
+              position: absolute;
+              right: 0;
+              top: 0; }
+      #contract .content-data .tab-container .tab-body {
+        margin-top: 30px; }
+        #contract .content-data .tab-container .tab-body .tab-content {
+          display: none; }
+          #contract .content-data .tab-container .tab-body .tab-content.active {
+            display: block; }
+          #contract .content-data .tab-container .tab-body .tab-content .movie-formcontract {
+            width: 70%;
+            margin: 0 auto; }
+            @media (max-width: 1024px) {
+              #contract .content-data .tab-container .tab-body .tab-content .movie-formcontract {
+                width: 100%; } }
+          #contract .content-data .tab-container .tab-body .tab-content input {
+            background-color: transparent;
+            color: #ffffff; }
+          #contract .content-data .tab-container .tab-body .tab-content label {
+            font-size: 22px;
+            color: #bcb1b5; }
+          #contract .content-data .tab-container .tab-body .tab-content button {
+            margin-top: 15px;
+            background-color: rgba(255, 255, 255, 0.4);
+            font-weight: bold;
+            color: #ffffff;
+            padding: 2px 12px; }
   @media (max-width: 1024px) {
     #contract .content-cate {
       margin-bottom: 20px; } }

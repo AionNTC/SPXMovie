@@ -381,7 +381,7 @@ class Anime extends BaseController
 
 	public function save_requests()
 	{
-		$request_text = $_POST['request_text'];
+		$request_text = $_POST['request_anime_text'];
 
 		$this->AnimeModel->save_requests($this->anbranch, $request_text);
 	}

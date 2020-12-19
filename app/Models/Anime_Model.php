@@ -650,7 +650,7 @@ class Anime_Model extends Model
 
             'branch_id' => $branch,
 
-            'an_request' => $movie
+            'mo_request' => $movie
 
         ];
 
@@ -718,7 +718,7 @@ class Anime_Model extends Model
 
         $data =  [
             'branch_id' => $branch,
-            'an_request' => $movie
+            'mo_request' => $movie
         ];
 
         try {

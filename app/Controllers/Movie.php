@@ -446,6 +446,7 @@ class Movie extends BaseController
 			'adsbottom' => $adsbottom,
 			'chk_act' => $chk_act,
 			'urlrequests' => base_url().'/save_requests/',
+			'urlrequestanime' => base_url().'/anime/save_requests/',
 			'urlconads' => base_url().'/con_ads/',
 		];
 
@@ -486,7 +487,7 @@ class Movie extends BaseController
 
 	public function save_requests()
 	{
-		$request_text = $_POST['request_text'];
+		$request_text = $_POST['request_movie_text'];
 
 		$this->VideoModel->save_requests($this->mvbranch, $request_text);
 	}

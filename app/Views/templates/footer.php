@@ -66,17 +66,6 @@
             }
         }
 
-            
-        function goSearch() {
-            var search = $.trim($("#movie-search").val())
-
-            if (search) {
-                window.location.href = "/search/" + $("#movie-search").val();
-            } else {
-                window.location.href = "<?= base_url() ?>";
-            }
-        }
-
         $(document).ready(function() {
             <? if(isset($list) && $list['total_page'] != 0) { ?>
                 var $pagination = $('#pagination-demo');

@@ -18,7 +18,7 @@
 
                             $url_name = urlencode(str_replace(' ', '-', $val['movie_thname']));
                     ?>
-                            <a onclick="goView('<?= $val['movie_id'] ?>', '<?=$url_name?>' , '0','<?= str_replace(' ', '-', $val['ep_data'][0]['NameEp']) ?>')" alt="<?= $val['movie_thname'] ?>" title="<?= $val['movie_thname'] ?>" class="card-content" style="background-image: url('<?= $movie_picture ?>')">
+                            <a onclick="goView('<?= $val['movie_id'] ?>', '<?=$url_name?>' , '0','<?= $url_name ?>')" alt="<?= $val['movie_thname'] ?>" title="<?= $val['movie_thname'] ?>" class="card-content" style="background-image: url('<?= $movie_picture ?>')">
                             <?
                                 if (!($val['movie_view'])) {
                                     $view = 0;
@@ -133,7 +133,7 @@
                                 
                                 $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
                         ?>
-                            <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '0','<?= str_replace(' ', '-', $popular['ep_data'][0]['NameEp']) ?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="thumbnail-cate">
+                            <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '0','<?= $url_name ?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="thumbnail-cate">
                                 <img style="max-width: 86px;" src="<? echo $movie_picture ?>">
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>

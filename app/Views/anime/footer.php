@@ -57,5 +57,15 @@
     document.body.style.overflow = 'auto'
     document.getElementById("overlay").style.display = "none";
   }
+
+  function goSearch() {
+      var search = $.trim($("#movie-search").val())
+
+      if (search) {
+          window.location.href = "/anime/search/" + $("#movie-search").val();
+      } else {
+          window.location.href = "<?= base_url() ?>";
+      }
+  }
     
 </script>

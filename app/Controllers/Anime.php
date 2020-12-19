@@ -258,19 +258,19 @@ class Anime extends BaseController
 	public function search($keyword)
 	{
 		$page = isset($_GET['page']) ? $_GET['page'] : 1;
-		$setting = $this->VideoModel->get_setting($this->anbranch);
+		$setting = $this->AnimeModel->get_setting($this->anbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
 		$list = array() ;
 		$keyword = urldecode(str_replace("'","\'",$keyword));
-		$list = $this->VideoModel->get_list_video($this->anbranch,  $keyword, $page);
-		$adsbottom = $this->VideoModel->get_adsbottom($this->anbranch);
-		$list_category = $this->VideoModel->get_category($this->anbranch);
-		$list_popular = $this->VideoModel->get_list_popular($this->anbranch);
+		$list = $this->AnimeModel->get_list_video($this->anbranch,  $keyword, $page);
+		$adsbottom = $this->AnimeModel->get_adsbottom($this->anbranch);
+		$list_category = $this->AnimeModel->get_category($this->anbranch);
+		$list_popular = $this->AnimeModel->get_list_popular($this->anbranch);
 
 		$chk_act = [
-			'home' => 'active',
-			'anime' => '',
+			'home' => '',
+			'anime' => 'active',
 			'contract' => ''
 		];
 
@@ -299,8 +299,8 @@ class Anime extends BaseController
 		];
 
 		echo view('templates/header.php', $header_data);
-		echo view('movie/search.php', $body_data);
-		echo view('movie/footer.php');
+		echo view('anime/search.php', $body_data);
+		echo view('anime/footer.php');
 		echo view('templates/footer.php');
 	}
 

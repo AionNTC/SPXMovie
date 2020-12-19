@@ -63,6 +63,7 @@ class Movie extends BaseController
 			'anime' => '',
 			'contract' => ''
 		];
+
 		$header_data = [
 			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
@@ -78,17 +79,16 @@ class Movie extends BaseController
 		$list = $this->VideoModel->get_list_video($this->mvbranch, '', $page, $order);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
+
 		$body_data = [
 			'order' => $order,
 			'branch' => $this->mvbranch,
-			'url_loadmore' => base_url('moviedata'),
 			'path_thumbnail' => $this->path_thumbnail,
 			'list' => $list,
 			'adsbottom' => $adsbottom,
 			'path_ads' => $this->path_ads,
 			'adstop' => $adstop,
 		];
-
 
 		echo view('templates/header.php', $header_data);
 		echo view('movie/index.php', $body_data);
@@ -99,7 +99,6 @@ class Movie extends BaseController
 	public function video($id, $Name)
 	{
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
-		$seo = $this->VideoModel->get_seo($this->mvbranch);
 		$videodata = $this->VideoModel->get_id_video($id);
 		$videinterest = $this->VideoModel->get_video_interest($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
@@ -110,19 +109,6 @@ class Movie extends BaseController
 		$date = get_date($videodata['movie_create']);
 
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
-
-		if( $seo ){
-
-			if(substr($videodata['movie_picture'], 0, 4) == 'http'){
-				$movie_picture = $videodata['movie_picture'];
-			}else{
-				$movie_picture = $this->path_thumbnail . $videodata['movie_picture'];
-			}
-
-			$setting['setting_img'] = $movie_picture; 
-			$setting['setting_description'] = str_replace("{movie_description}", $videodata['movie_des'], $seo['seo_description']);
-			$setting['setting_title'] = str_replace("{movie_title} - {title_web}", $videodata['movie_thname'] . " - " . $setting['setting_title'], $seo['seo_title']);
-		}
 
 		$chk_act = [
 			'home' => 'active',
@@ -165,7 +151,6 @@ class Movie extends BaseController
 	public function series($id, $Name, $index = 0, $epname = '')
 	{
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
-		$seo = $this->VideoModel->get_seo($this->mvbranch);
 		$series = $this->VideoModel->get_ep_series($id);
 		$videinterest = $this->VideoModel->get_video_interest($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
@@ -181,20 +166,6 @@ class Movie extends BaseController
 		$date = get_date($series['movie_create']);
 
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
-
-		if( $seo ){
-
-			if(substr($series['movie_picture'], 0, 4) == 'http'){
-				$movie_picture = $series['movie_picture'];
-			}else{
-				$movie_picture = $this->path_thumbnail . $vidserieseodata['movie_picture'];
-			}
-
-			$setting['setting_img'] = $movie_picture; 
-			$setting['setting_description'] = str_replace("{movie_description}", $series['movie_des'], $seo['seo_description']);
-			$setting['setting_title'] = str_replace("{movie_title} - {title_web}", $series['movie_thname'] . " - " . $setting['setting_title'], $seo['seo_title']);
-		}
-
 		
 		$chk_act = [
 			'home' => 'active',

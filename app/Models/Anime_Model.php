@@ -4,20 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Video_Model extends Model
+class Anime_Model extends Model
 {
 
-    protected $table_movie = 'mo_movie';
-    protected $table_slide = 'mo_slide';
-    protected $table_category = 'mo_category';
-    protected $mo_moviecate = 'mo_moviecate';
-    protected $table_vdoads = 'mo_adsvideo';
-    protected $mo_request = 'mo_request';
-    protected $mo_adscontact = 'mo_adscontact';
+    protected $table_movie = 'an_movie';
+    protected $table_slide = 'an_slide';
+    protected $table_category = 'an_category';
+    protected $an_moviecate = 'an_moviecate';
+    protected $table_vdoads = 'an_adsvideo';
+    protected $an_request = 'an_request';
+    protected $an_adscontact = 'an_adscontact';
     protected $pathAdsVideo = 'movie/adsvdo';
     protected $ads = 'ads';
-    protected $report_movie = 'mo_report';
-    protected $live_stream = 'mo_livestream';
+    protected $report_movie = 'an_report';
+    protected $live_stream = 'an_livestream';
     protected $setting = 'setting';
     protected $content = 'content';
     protected $seo = 'seo';
@@ -64,13 +64,13 @@ class Video_Model extends Model
     public function get_category($branch_id) // เรียก Category ตาม Branch 
     {
         $sql = "SELECT
-            *, count(mo_moviecate.movie_id) as movie_nb
+            *, count(an_moviecate.movie_id) as movie_nb
             FROM
-            mo_category
-            inner JOIN mo_moviecate ON mo_category.category_id = mo_moviecate.category_id 
+            an_category
+            inner JOIN an_moviecate ON an_category.category_id = an_moviecate.category_id 
             WHERE
-            `mo_category`.branch_id = ?
-             GROUP BY mo_category.category_id"
+            `an_category`.branch_id = ?
+             GROUP BY an_category.category_id"
             ;
             
 
@@ -210,9 +210,9 @@ class Video_Model extends Model
                         *
                     FROM
                         `$this->table_category`
-                    INNER JOIN `$this->mo_moviecate` ON `$this->mo_moviecate`.category_id = `$this->table_category`.category_id
+                    INNER JOIN `$this->an_moviecate` ON `$this->an_moviecate`.category_id = `$this->table_category`.category_id
                     WHERE
-                    `$this->mo_moviecate`.movie_id = '$id'";
+                    `$this->an_moviecate`.movie_id = '$id'";
 
                 $querycate = $this->db->query($sqlcate);
                 $result[$key]['cate_data'] = $querycate->getResultArray();
@@ -241,9 +241,9 @@ class Video_Model extends Model
                     *
                 FROM
                     `$this->table_category`
-                INNER JOIN `$this->mo_moviecate` ON `$this->mo_moviecate`.category_id = `$this->table_category`.category_id
+                INNER JOIN `$this->an_moviecate` ON `$this->an_moviecate`.category_id = `$this->table_category`.category_id
                 WHERE
-                `$this->mo_moviecate`.movie_id = '$id'";
+                `$this->an_moviecate`.movie_id = '$id'";
 
             $querycate = $this->db->query($sqlcate);
             $result['cate_data'] = $querycate->getResultArray();
@@ -259,40 +259,68 @@ class Video_Model extends Model
                     *
                 FROM
                     `$this->table_movie`
+                    LEFT JOIN `$this->an_moviecate` on an_movie.movie_id = an_moviecate.movie_id 
                 WHERE
-                `$this->table_movie`.movie_id =" . $id;
+                `$this->table_movie`.movie_id =" . $id .
+            " AND `$this->table_movie`.movie_active = '1'";
 
         $query = $this->db->query($sql);
         $data = $query->getResultArray();
-        $data[0]['epdata'] = $this->normalizeSeriestoArray($data[0]['movie_thmain']);
-        $data[0]['name_ep'] = $this->getListNameSeries($data[0]['movie_thmain'])[0];
 
-        if(!empty($data[0])){
-            $sqlcate = "SELECT
-                    *
-                FROM
-                    `$this->table_category`
-                INNER JOIN `$this->mo_moviecate` ON `$this->mo_moviecate`.category_id = `$this->table_category`.category_id
-                WHERE
-                `$this->mo_moviecate`.movie_id = '$id'";
-
-            $querycate = $this->db->query($sqlcate);
-            $data[0]['cate_data'] = $querycate->getResultArray();
-        }
+        $data[0]['ep_data'] = $this->normalizeAnimetoArray($data[0]['movie_thmain']);
+        $data[0]['cate_data'] = $this->get_category_onanime($data[0]['movie_id']);
+        unset($data[0]['movie_thmain']);
 
         return $data[0];
     }
 
-    public function normalizeSeriestoArray($str)
+    
+    public function get_category_onanime($id)
     {
-        $pattern = '(\{{[^}}]*\}})';
-        $str = preg_replace($pattern, '', $str);
-        $delimiter = '!!end!!';
-        $seriesList = explode($delimiter, $str);
-        if (($key = array_search('', $seriesList)) !== false) {
-            unset($seriesList[$key]);
+
+        $sql = "SELECT
+                    *
+                FROM
+                    an_moviecate
+                INNER JOIN an_category ON an_moviecate.category_id = an_category.category_id 
+                WHERE 
+                    an_moviecate.movie_id = '$id' ";
+
+        $query = $this->db->query($sql);
+        $total = count($query->getResultArray());
+        $data = $query->getResultArray();
+
+        return  $data;
+    }
+
+    public function u_decode($input)
+    {
+        return preg_replace_callback(
+            '/\\\\u([0-9a-zA-Z]{4})/',
+            function ($matches) {
+                return mb_convert_encoding(pack('H*', $matches[1]), 'UTF-8', 'UTF-16');
+            },
+            $input
+        );
+    }
+
+    public function normalizeAnimetoArray($str)
+    {
+        $str = $this->u_decode($str);
+        $Arr = json_decode($str, true);
+
+        $EpList = [];
+
+        foreach ($Arr as $key => $item) {
+            $EpData = [
+                'NameEp' => $key,
+                'EpData' => $item
+            ];
+
+            array_push($EpList, $EpData);
         }
-        return $seriesList;
+
+        return $EpList;
     }
 
     public function getListNameSeries($str)
@@ -308,13 +336,13 @@ class Video_Model extends Model
         $sql = "SELECT
                 *
                 FROM
-                    mo_moviecate
-                LEFT JOIN mo_movie ON mo_moviecate.movie_id = mo_movie.movie_id 
+                    an_moviecate
+                LEFT JOIN an_movie ON an_moviecate.movie_id = an_movie.movie_id 
                 WHERE 
-                    mo_moviecate.category_id = '$id' 
+                    an_moviecate.category_id = '$id' 
                     AND `$this->table_movie`.movie_active = '1' 
-                    AND mo_moviecate.branch_id = '$branch_id' 
-                ORDER BY mo_movie.movie_year DESC, mo_movie.movie_create DESC
+                    AND an_moviecate.branch_id = '$branch_id' 
+                ORDER BY an_movie.movie_year DESC, an_movie.movie_create DESC
                 ";
         $query = $this->db->query($sql, [$id]);
 
@@ -592,10 +620,10 @@ class Video_Model extends Model
         $sql = "SELECT
            *
         FROM
-            mo_moviecate
-        left JOIN mo_movie ON mo_moviecate.movie_id = mo_movie.movie_id 
-        left JOIN mo_category ON mo_moviecate.category_id = mo_category.category_id
-        WHERE mo_moviecate.category_id = '$id ' AND mo_moviecate.branch_id = '$branch_id' ";
+            an_moviecate
+        left JOIN an_movie ON an_moviecate.movie_id = an_movie.movie_id 
+        left JOIN an_category ON an_moviecate.category_id = an_category.category_id
+        WHERE an_moviecate.category_id = '$id ' AND an_moviecate.branch_id = '$branch_id' ";
         $query = $this->db->query($sql);
 
         $total = count($query->getResultArray());
@@ -614,7 +642,7 @@ class Video_Model extends Model
     {
 
 
-        $bd =  $this->db->table($this->mo_request);
+        $bd =  $this->db->table($this->an_request);
 
         $this->db->transBegin();
 
@@ -622,7 +650,7 @@ class Video_Model extends Model
 
             'branch_id' => $branch,
 
-            'mo_request' => $movie
+            'an_request' => $movie
 
         ];
 
@@ -649,15 +677,15 @@ class Video_Model extends Model
     public function save_contact_ads($namesurname, $email, $lineid, $phone, $branch_id)
 
     {
-        $bd =  $this->db->table($this->mo_adscontact);
+        $bd =  $this->db->table($this->an_adscontact);
         $this->db->transBegin();
 
         $data =  [
-            'mo_adscontact_namesurname' => $namesurname,
-            'mo_adscontact_email' => $email,
-            'mo_adscontact_lineid' => $lineid,
-            'mo_adscontact_phone' => $phone,
-            'mo_adscontact_branch_id' => $branch_id
+            'an_adscontact_namesurname' => $namesurname,
+            'an_adscontact_email' => $email,
+            'an_adscontact_lineid' => $lineid,
+            'an_adscontact_phone' => $phone,
+            'an_adscontact_branch_id' => $branch_id
         ];
         try {
 
@@ -685,12 +713,12 @@ class Video_Model extends Model
     public function save_requests($branch, $movie)
     {
 
-        $bd =  $this->db->table($this->mo_request);
+        $bd =  $this->db->table($this->an_request);
         $this->db->transBegin();
 
         $data =  [
             'branch_id' => $branch,
-            'mo_request' => $movie
+            'an_request' => $movie
         ];
 
         try {
@@ -717,15 +745,15 @@ class Video_Model extends Model
 
 
 
-        $bd =  $this->db->table($this->mo_adscontact);
+        $bd =  $this->db->table($this->an_adscontact);
         $this->db->transBegin();
 
         $data =  [
-            'mo_adscontact_branch_id' => $branch,
-            'mo_adscontact_namesurname' => $ads_con_name,
-            'mo_adscontact_email' => $ads_con_email,
-            'mo_adscontact_lineid' => $ads_con_line,
-            'mo_adscontact_phone' => $ads_con_tel,
+            'an_adscontact_branch_id' => $branch,
+            'an_adscontact_namesurname' => $ads_con_name,
+            'an_adscontact_email' => $ads_con_email,
+            'an_adscontact_lineid' => $ads_con_line,
+            'an_adscontact_phone' => $ads_con_tel,
 
         ];
 

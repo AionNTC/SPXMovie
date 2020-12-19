@@ -1,5 +1,5 @@
 <?php namespace App\Controllers;
-use App\Models\Video_Model;
+use App\Models\Anime_Model;
 
 class Anime extends BaseController
 {
@@ -7,8 +7,8 @@ class Anime extends BaseController
 	protected $base_backurl;
 	public $path_setting = "";
 	public $path_ads = "";
-	public $anbranch = 2;
-	public $backURL = "http://localhost:9999/public/";
+	public $anbranch = 1;
+	public $backURL = "http://localhost:1004/public/";
 	public $document_root = '';
 	public $path_thumbnail = "https://anime.vip-streaming.com/";
 	public $path_slide = "";
@@ -20,174 +20,114 @@ class Anime extends BaseController
 		$this->config = new \Config\App();
 		$this->validation =  \Config\Services::validation();
 		$this->session = \Config\Services::session();
-		$this->VideoModel = new Video_Model();
+		$this->AnimeModel = new Anime_Model();
 		$this->document_root = $this->config->docURL;
 		$this->anbranch = 2;
 
 		// Directory
-		$this->path_ads = $this->backURL . 'public/banners/';
+		$this->path_ads = $this->backURL . 'banners/';
 		$this->path_setting = $this->backURL . 'setting/';
 		$this->path_slide = $this->backURL . 'img_slide/';
 		$this->searchUrl = base_url('search');
-		$this->contectUrl = base_url('contract');
+		$this->contractUrl = base_url('contract');
 
 		helper(['url', 'pagination', 'dateformat', 'validatetext']);
 	}
 
 	public function index()
 	{
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
+		$order = 'all';
+		$page = isset($_GET['page']) ? $_GET['page'] : 1;
+		$setting = $this->AnimeModel->get_setting($this->anbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
+		$list_category = $this->AnimeModel->get_category($this->anbranch);
+		$list_popular = $this->AnimeModel->get_list_popular($this->anbranch);
+		// print_r($list_popular);
+		// exit;
+		
+		if(isset($_GET['order']) && $_GET['order'] == 'top-view') {
+			$order = 'top-view';
+		}
 
 		$chk_act = [
-			'home' => 'active',
-			'anime' => '',
+			'home' => '',
+			'anime' => 'active',
 			'contract' => ''
 		];
+
 
 		$header_data = [
 			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
 			'searchUrl' => $this->searchUrl,
-			'contectUrl' => $this->contectUrl,
+			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
 			'list_category' => $list_category,
 			'chk_act' => $chk_act,
+			'list_popular' => $list_popular,
 			'setting' => $setting
 		];
 
-		$list = $this->VideoModel->get_list_video($this->mvbranch);
-		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
+		$adstop = $this->AnimeModel->get_adstop($this->anbranch);
+		$list = $this->AnimeModel->get_list_video($this->anbranch, '', $page, $order);
+		$adsbottom = $this->AnimeModel->get_adsbottom($this->anbranch);
 
 		$body_data = [
-			'url_loadmore' => base_url('moviedata'),
+			'order' => $order,
+			'branch' => $this->anbranch,
 			'path_thumbnail' => $this->path_thumbnail,
 			'list' => $list,
 			'adsbottom' => $adsbottom,
 			'path_ads' => $this->path_ads,
-		];
-
-
-		echo view('templates/header.php', $header_data);
-		echo view('index.php', $body_data);
-		echo view('templates/footer.php');
-	}
-
-	public function video($id, $Name)
-	{
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
-		$seo = $this->VideoModel->get_seo($this->mvbranch);
-		$videodata = $this->VideoModel->get_id_video($id);
-		$videinterest = $this->VideoModel->get_video_interest($this->mvbranch);
-		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
-		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
-
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
-		$date = get_date($videodata['movie_create']);
-
-		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
-
-		if( $seo ){
-
-			if(substr($videodata['movie_picture'], 0, 4) == 'http'){
-				$movie_picture = $videodata['movie_picture'];
-			}else{
-				$movie_picture = $this->path_thumbnail . $videodata['movie_picture'];
-			}
-
-			$setting['setting_img'] = $movie_picture; 
-			$setting['setting_description'] = str_replace("{movie_description}", $videodata['movie_des'], $seo['seo_description']);
-			$setting['setting_title'] = str_replace("{movie_title} - {title_web}", $videodata['movie_thname'] . " - " . $setting['setting_title'], $seo['seo_title']);
-		}
-
-		$chk_act = [
-			'home' => 'active',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => '',
-				'contract' => ''
-		];
-
-		$header_data = [
-			'document_root' => $this->document_root,
-			'path_setting' => $this->path_setting,
-			'setting' => $setting,
-			'list_category' => $list_category,
-			'chk_act' => $chk_act,
-		];
-
-		$body_data = [
-			'url_loadmore' => base_url('moviedata') ,
-			'path_thumbnail' => $this->path_thumbnail,
-			'videodata' => $videodata,
-			'videinterest' => $videinterest,
 			'adstop' => $adstop,
-			'adsbottom' => $adsbottom,
-			'path_ads' => $this->path_ads,
-			'DateEng' => $date['DateEng'],
-			'feildplay' => 'movie_thmain',
-			'index' => 'a',
 		];
 
 		echo view('templates/header.php', $header_data);
-		echo view('video.php', $body_data);
+		echo view('anime/index.php', $body_data);
+		echo view('anime/footer.php');
 		echo view('templates/footer.php');
 	}
 
-	public function series($id, $Name, $index = 0, $epname = '')
+	public function anime($id, $Name, $index = 0, $epname = '')
 	{
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
-		$seo = $this->VideoModel->get_seo($this->mvbranch);
-		$series = $this->VideoModel->get_ep_series($id);
-		$videinterest = $this->VideoModel->get_video_interest($this->mvbranch);
-		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
-		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
+		$setting = $this->AnimeModel->get_setting($this->anbranch);
+		$series = $this->AnimeModel->get_ep_series($id);
+		$videinterest = $this->AnimeModel->get_video_interest($this->anbranch);
+		$adstop = $this->AnimeModel->get_adstop($this->anbranch);
+		$adsbottom = $this->AnimeModel->get_adsbottom($this->anbranch);
+		$list_popular = $this->AnimeModel->get_list_popular($this->anbranch);
 
 		if($epname==''){
 			$lastep = count($series['epdata']);
 			$index = $lastep-1;
 		}
 
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
+		$list_category = $this->AnimeModel->get_category($this->anbranch);
 		$date = get_date($series['movie_create']);
 
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
-
-		if( $seo ){
-
-			if(substr($series['movie_picture'], 0, 4) == 'http'){
-				$movie_picture = $series['movie_picture'];
-			}else{
-				$movie_picture = $this->path_thumbnail . $vidserieseodata['movie_picture'];
-			}
-
-			$setting['setting_img'] = $movie_picture; 
-			$setting['setting_description'] = str_replace("{movie_description}", $series['movie_des'], $seo['seo_description']);
-			$setting['setting_title'] = str_replace("{movie_title} - {title_web}", $series['movie_thname'] . " - " . $setting['setting_title'], $seo['seo_title']);
-		}
-
-		
+		// print_r($series);
+		// exit;
 		$chk_act = [
-			'home' => 'active',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => '',
-				'contract' => ''
+			'home' => '',
+			'anime' => 'active',
+			'contract' => ''
 		];
-
 		$header_data = [
+			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
+			'searchUrl' => $this->searchUrl,
+			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
 			'setting' => $setting,
 			'list_category' => $list_category,
+			'list_popular' => $list_popular,
 			'chk_act' => $chk_act,
 		];
 
 		$body_data = [
+			'branch' => $this->anbranch,
 			'url_loadmore' => base_url('moviedata') ,
 			'path_thumbnail' => $this->path_thumbnail,
 			'videodata' => $series,
@@ -199,15 +139,16 @@ class Anime extends BaseController
 			'index' => $index,
 			'videinterest' => $videinterest
 		];
-
+		
 		echo view('templates/header.php', $header_data);
-		echo view('video.php', $body_data);
+		echo view('anime/video.php', $body_data);
+		echo view('anime/footer.php');
 		echo view('templates/footer.php');
 	}
 
 	public function moviedata()
 	{
-		$list = $this->VideoModel->get_list_video($this->mvbranch, '', $_GET['page']);
+		$list = $this->AnimeModel->get_list_video($this->anbranch, '', $_GET['page']);
 
 		$header_data = [
 			'document_root' => $this->document_root,
@@ -220,7 +161,7 @@ class Anime extends BaseController
 
 	public function moviedata_search()
 	{
-		$list = $this->VideoModel->get_list_video($this->mvbranch, $_GET['keyword'], $_GET['page']);
+		$list = $this->AnimeModel->get_list_video($this->anbranch, $_GET['keyword'], $_GET['page']);
 
 		$header_data = [
 			'document_root' => $this->document_root,
@@ -233,7 +174,7 @@ class Anime extends BaseController
 
 	public function moviedata_category()
 	{
-		$list = $this->VideoModel->get_id_video_bycategory($this->mvbranch, $_GET['keyword'], $_GET['page']);
+		$list = $this->AnimeModel->get_id_video_bycategory($this->anbranch, $_GET['keyword'], $_GET['page']);
 
 		$header_data = [
 			'document_root' => $this->document_root,
@@ -246,7 +187,7 @@ class Anime extends BaseController
 
 	public function categorylist() //ต้นแบบ หน้า cate / search
 	{
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
+		$setting = $this->AnimeModel->get_setting($this->anbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
 		$chk_act = [
@@ -266,7 +207,7 @@ class Anime extends BaseController
 			'chk_act' => $chk_act,
 		];
 
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
+		$list_category = $this->AnimeModel->get_category($this->anbranch);
 
 		$body_data = [
 			'list_category' => $list_category
@@ -280,12 +221,12 @@ class Anime extends BaseController
 
 	public function popular() //ต้นแบบ หน้า cate / search
 	{
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
+		$setting = $this->VideoModel->get_setting($this->anbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
-		$list = $this->VideoModel->get_list_popular($this->mvbranch);
-		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
+		$list_category = $this->VideoModel->get_category($this->anbranch);
+		$list = $this->VideoModel->get_list_popular($this->anbranch);
+		$adsbottom = $this->VideoModel->get_adsbottom($this->anbranch);
 
 		$chk_act = [
 			'home' => '',
@@ -310,38 +251,44 @@ class Anime extends BaseController
 		];
 
 		echo view('templates/header.php', $header_data);
-		echo view('popular.php');
+		echo view('movie/popular.php');
 		echo view('templates/footer.php');
 	}
 
 	public function search($keyword)
 	{
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
+		$page = isset($_GET['page']) ? $_GET['page'] : 1;
+		$setting = $this->VideoModel->get_setting($this->anbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
 		$list = array() ;
 		$keyword = urldecode(str_replace("'","\'",$keyword));
-		$list = $this->VideoModel->get_list_video($this->mvbranch,  $keyword, '1');
-		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
+		$list = $this->VideoModel->get_list_video($this->anbranch,  $keyword, $page);
+		$adsbottom = $this->VideoModel->get_adsbottom($this->anbranch);
+		$list_category = $this->VideoModel->get_category($this->anbranch);
+		$list_popular = $this->VideoModel->get_list_popular($this->anbranch);
 
 		$chk_act = [
 			'home' => 'active',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => '',
+			'anime' => '',
 			'contract' => ''
 		];
 
 		$header_data = [
+			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
+			'searchUrl' => $this->searchUrl,
+			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
-			'setting' => $setting,
 			'list_category' => $list_category,
-			'keyword' => $keyword,
 			'chk_act' => $chk_act,
+			'list_popular' => $list_popular,
+			'keyword' => $keyword,
+			'setting' => $setting
 		];
+
+		// print_r($list);
+		// exit;
 
 		$body_data = [
 			'url_loadmore' => base_url('moviedata_search'),
@@ -352,46 +299,38 @@ class Anime extends BaseController
 		];
 
 		echo view('templates/header.php', $header_data);
-		echo view('list.php', $body_data);
+		echo view('movie/search.php', $body_data);
+		echo view('movie/footer.php');
 		echo view('templates/footer.php');
 	}
 
 	public function category($cate_id, $cate_name)
 	{
-
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
+		$page = isset($_GET['page']) ? $_GET['page'] : 1;
+		$setting = $this->AnimeModel->get_setting($this->anbranch);
 		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
 
-		$list = $this->VideoModel->get_id_video_bycategory($this->mvbranch, $cate_id, 1);
-		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
+		$list = $this->AnimeModel->get_id_video_bycategory($this->anbranch, $cate_id, $page);
+		$adsbottom = $this->AnimeModel->get_adsbottom($this->anbranch);
+		$list_category = $this->AnimeModel->get_category($this->anbranch);
+		$list_popular = $this->AnimeModel->get_list_popular($this->anbranch);
 		
 		$chk_act = [
 			'home' => '',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => 'active',
+			'anime' => 'active',
 			'contract' => ''
 		];
 
-		if($cate_id == '28'){
-			$chk_act = [
-				'home' => '',
-				'poppular' => '',
-				'newmovie' => '',
-				'netflix' => 'active',
-				'category' => '',
-				'contract' => ''
-			];
-		}
-
 		$header_data = [
+			'backURL' =>$this->backURL,
 			'document_root' => $this->document_root,
+			'searchUrl' => $this->searchUrl,
+			'contractUrl' => $this->contractUrl,
 			'path_setting' => $this->path_setting,
-			'setting' => $setting,
 			'list_category' => $list_category,
 			'chk_act' => $chk_act,
+			'list_popular' => $list_popular,
+			'setting' => $setting
 		];
 
 		$body_data = [
@@ -402,93 +341,53 @@ class Anime extends BaseController
 			'list' => $list,
 			'adsbottom' => $adsbottom,
 			'path_ads' => $this->path_ads,
-			'path_ads' => $this->path_ads,
-
 		];
 
 		echo view('templates/header.php', $header_data);
-		echo view('list.php', $body_data);
-		echo view('templates/footer.php');
-	}
-
-	public function contract() //ต้นแบบ หน้า cate / search
-	{
-		$setting = $this->VideoModel->get_setting($this->mvbranch);
-		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
-
-		$list_category = $this->VideoModel->get_category($this->mvbranch);
-		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
-
-		$chk_act = [
-			'home' => '',
-			'poppular' => '',
-			'newmovie' => '',
-			'netflix' => '',
-			'category' => '',
-			'contract' => 'active'
-		];
-
-		$header_data = [
-			'document_root' => $this->document_root,
-			'path_thumbnail' => $this->path_thumbnail,
-			'path_setting' => $this->path_setting,
-			'setting' => $setting,
-			'chk_act' => $chk_act,
-			'list_category' => $list_category,
-			'adsbottom' => $adsbottom,
-			'path_ads' => $this->path_ads,
-		];
-
-		echo view('templates/header.php', $header_data);
-		echo view('contract.php');
+		echo view('anime/category.php', $body_data);
+		echo view('anime/footer.php');
 		echo view('templates/footer.php');
 	}
 
 	public function player($id, $index)
 	{
-		$video_data = $this->VideoModel->get_id_video($id);
-		$series = $this->VideoModel->get_ep_series($id);
-		$adsvideo = $this->VideoModel->get_adsvideolist($this->backURL);
+		$video_data = $this->AnimeModel->get_id_video($id);
+		$series = $this->AnimeModel->get_ep_series($id);
+		$adsvideo = $this->AnimeModel->get_adsvideolist($this->backURL);
 		// echo '<pre>' . print_r($anime, true) . '</pre>';
 		// 		die;
 		$playerUrl =$video_data['movie_thmain'];
 
-		if ($index != "a") {
-			$playerUrl =$series['epdata'][$index] ;
+		
+		if ($index != "") {
+			$playerUrl =$series['ep_data'][$index]['EpData'] ;
 		}
 
 		$data = [
 			'document_root' => $this->document_root,
-			'branch' 		=> $this->mvbranch,
+			'branch' 		=> $this->anbranch,
 			'backUrl' 		=> $this->backURL,
 			'adsvideo'		=> $adsvideo,
 			'playerUrl' 	=> $playerUrl
 		];
 
-		echo view('player.php', $data);
+		echo view('anime/player.php', $data);
 	}
 
 	public function countView($id)
 	{
-		$this->VideoModel->countView($id);
+		$this->AnimeModel->countView($id);
 	}
 
 	public function save_requests()
 	{
 		$request_text = $_POST['request_text'];
 
-		$this->VideoModel->save_requests($this->mvbranch, $request_text);
+		$this->AnimeModel->save_requests($this->anbranch, $request_text);
 	}
 
 	public function con_ads()
 	{
-
-		
-		$chk_ads_con_name = validate($_POST['ads_con_name']);
-		$chk_ads_con_email = validate($_POST['ads_con_email']);
-		$chk_ads_con_line = validate($_POST['ads_con_line']);
-		$chk_ads_con_tel = validate($_POST['ads_con_tel']);
-
 		$ads_con_name =$_POST['ads_con_name'];
 		$ads_con_email = $_POST['ads_con_email'];
 		$ads_con_line = $_POST['ads_con_line'];
@@ -498,7 +397,7 @@ class Anime extends BaseController
 		// die;
 
 
-		$this->VideoModel->con_ads($this->mvbranch, $ads_con_name, $ads_con_email, $ads_con_line, $ads_con_tel);
+		$this->AnimeModel->con_ads($this->anbranch, $ads_con_name, $ads_con_email, $ads_con_line, $ads_con_tel);
 	}
 
 	public function saveReport()
@@ -512,7 +411,7 @@ class Anime extends BaseController
 
 
 
-		$result = $this->VideoModel->save_reports($this->mvbranch,$movie_id,$movie_name,$movie_ep_name,$datetime);
+		$result = $this->AnimeModel->save_reports($this->anbranch,$movie_id,$movie_name,$movie_ep_name,$datetime);
 
 
 	}

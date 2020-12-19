@@ -78,7 +78,7 @@
         }
 
         $(document).ready(function() {
-            <? if(isset($list)) { ?>
+            <? if(isset($list) && $list['total_page'] != 0) { ?>
                 var $pagination = $('#pagination-demo');
                 var defaultOpts = {
                     next: '>',
@@ -97,9 +97,9 @@
                         window.location.href = "<? base_url() ?>"+'?'+$params;
                     }
                 };
+                $pagination.twbsPagination(defaultOpts);
             <? } ?>
 
-            $pagination.twbsPagination(defaultOpts);
             
 
             $('#movie-formsearch').submit(function(e) {

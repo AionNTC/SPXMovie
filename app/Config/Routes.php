@@ -52,6 +52,26 @@ $routes->post('saveReport', 'Movie::saveReport');
 $routes->get('countview/(:num)', 'Movie::countView/$1');
 
 
+$routes->get('anime', 'Anime::index');
+$routes->get('anime/(:num)/(:segment)/(:num)/(:segment)', 'Anime::anime/$1/$2/$3/$4');
+
+$routes->get('anime/moviedata', 'Anime::moviedata');
+$routes->get('anime/moviedata_search', 'Anime::moviedata_search');
+$routes->get('anime/moviedata_category', 'Anime::moviedata_category');
+
+$routes->get('anime/player/(:num)/(:any)', 'Anime::player/$1/$2');
+$routes->get('anime/search/(:any)', 'Anime::search/$1');
+$routes->get('anime/popular', 'Anime::popular');
+$routes->get('anime/category', 'Anime::categorylist');
+$routes->get('anime/category/(:num)/(:any)', 'Anime::category/$1/$2');
+
+$routes->post('anime/save_requests', 'Anime::save_requests');
+$routes->post('anime/con_ads', 'Anime::con_ads');
+$routes->post('anime/saveReport', 'Anime::saveReport');
+
+$routes->get('anime/countview/(:num)', 'Anime::countView/$1');
+
+
 
 /**
  * --------------------------------------------------------------------

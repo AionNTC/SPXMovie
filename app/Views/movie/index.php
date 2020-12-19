@@ -4,8 +4,13 @@
             <?
                 foreach($list_popular as $popular) { 
                     $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
+                    if (substr($popular['movie_picture'], 0, 4) == 'http') {
+                        $movie_picture = $popular['movie_picture'];
+                    } else {
+                        $movie_picture = $path_thumbnail . $popular['movie_picture'];
+                    }
             ?>
-                <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '<?=$popular['movie_type']?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="swiper-slide"><img src="<? echo $popular['movie_picture'] ?>"></a>
+                <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '<?=$popular['movie_type']?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="swiper-slide"><img src="<? echo $movie_picture ?>"></a>
             <? } ?>
         </div>
         <div class="swiper-button-next"></div>
@@ -158,11 +163,17 @@
                                 }else{
                                     $score = substr($score,0);
                                 }
+
+                                if (substr($popular['movie_picture'], 0, 4) == 'http') {
+                                    $movie_picture = $popular['movie_picture'];
+                                } else {
+                                    $movie_picture = $path_thumbnail . $popular['movie_picture'];
+                                }
                                 
                                 $url_name = urlencode(str_replace(' ', '-', $popular['movie_thname']));
                         ?>
                             <a onclick="goView('<?= $popular['movie_id'] ?>', '<?=$url_name?>' , '<?=$popular['movie_type']?>')" alt="<?= $popular['movie_thname'] ?>" title="<?= $popular['movie_thname'] ?>" class="thumbnail-cate">
-                                <img style="max-width: 86px;" src="<? echo $popular['movie_picture'] ?>">
+                                <img style="max-width: 86px;" src="<? echo $movie_picture ?>">
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
                                     <div class="thumbnail-rate"><? echo $score ?>/100</div>

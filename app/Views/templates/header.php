@@ -71,7 +71,7 @@
                         <li class="<?= $chk_act['contract'] ?>" ><a href="/contract">ติดต่อ | ขอหนัง</a></li>
                     </ul>
                 </div>
-                <div class="search">
+                <div id="searchicon" class="search">
                     <i class="fas fa-search"></i>
                     <div class="search-form">
                         <form id="movie-formsearch">

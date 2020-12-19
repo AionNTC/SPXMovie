@@ -56,6 +56,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        $('#searchicon').hide();
         $('.tab-header').on('click', '.tab-title:not(".disabled")',function() {
             $('.tab-header .tab-title').addClass('disabled')
             setTimeout(() => {

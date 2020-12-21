@@ -8,7 +8,7 @@ class Anime extends BaseController
 	public $path_setting = "";
 	public $path_ads = "";
 	public $anbranch = 1;
-	public $backURL = "http://localhost:9999/public/";
+	public $backURL = "http://192.168.10.23:9999/public/";
 	public $document_root = '';
 	public $path_thumbnail = "https://anime.vip-streaming.com/";
 	public $path_slide = "";
@@ -112,7 +112,7 @@ class Anime extends BaseController
 			$movie_picture = $this->path_thumbnail . $series['movie_picture'];
 		}
 		$setting['setting_img'] = $movie_picture;
-		
+
 		if(!empty($seo)){
 			if(!empty($seo['seo_title'])){
 				$title = $seo['seo_title'];

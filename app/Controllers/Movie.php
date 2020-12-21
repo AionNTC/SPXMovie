@@ -12,7 +12,7 @@ class Movie extends BaseController
 	public $path_ads = "";
 	public $mvbranch = 1;
 	public $anbranch = 2;
-	public $backURL = "http://localhost:9999/public/";
+	public $backURL = "http://192.168.10.23:9999/public/";
 	public $document_root = '';
 	public $path_thumbnail = "https://anime.vip-streaming.com/";
 	public $path_slide = "";

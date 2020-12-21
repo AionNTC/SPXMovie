@@ -501,9 +501,6 @@ footer {
           content: "\2605";
           color: #ff9a36;
           padding-right: 2px; }
-      #video .preview .preview-data .preview-view span:before {
-        content: "\1F441";
-        padding-right: 2px; }
       #video .preview .preview-data .preview-shared {
         margin-bottom: 40px; }
         #video .preview .preview-data .preview-shared a {

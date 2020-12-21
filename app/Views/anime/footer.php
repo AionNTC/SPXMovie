@@ -13,17 +13,20 @@
     }
     countView(id);
 
-    window.location.href = "/anime/" + id + '/' + name + '/' + ep + '/' + nameep;
+    url = "/anime/" + id + '/' + name + '/' + ep + '/' + nameep;
+
+    
+    window.open(url, '_blank');
 
 
   }
 
   function countView(id) {
       // alert(id);
-      var base_url = '<?= base_url() ?>anime';
+      var base_url = '<?= base_url() ?>';
       $.ajax({
 
-        url: base_url + "/countview/" + id,
+        url: base_url + "/anime/countview/" + id,
         method: "GET",
 
         async: true,

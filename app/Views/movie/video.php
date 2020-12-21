@@ -46,7 +46,7 @@
             <div class="preview-data">
                 <div class="preview-title"><? echo $videodata['movie_thname'] ?></div>
                 <div class="preview-rate">MYMOVIELIST: <span><? echo $videodata['movie_ratescore'] ?>/10</span></div>
-                <div class="preview-view">VIEW: <span><? echo $videodata['movie_view'] ?></span></div>
+                <div class="preview-view">VIEW: <span><i class="fas fa-eye"></i>  <? echo $videodata['movie_view'] ?></span></div>
                 <? if(isset($presound)) { ?>
                     <div class="preview-sound">SOUND: <span><? echo $presound ?></span></div>
                 <? } ?>
@@ -104,16 +104,6 @@
                         }
                     ?>
                 </div>
-
-                <?
-                    if( empty($videodata['name_ep']) ){
-                ?>
-                    <div class="des">
-                        <? echo $videodata['movie_thname'] ?>
-                    </div>
-                <?
-                    }
-                ?>
 
                 <div class="title white">
                     <? echo $videodata['movie_thname'] ?>

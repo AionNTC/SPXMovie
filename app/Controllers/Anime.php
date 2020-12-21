@@ -8,7 +8,7 @@ class Anime extends BaseController
 	public $path_setting = "";
 	public $path_ads = "";
 	public $anbranch = 1;
-	public $backURL = "http://localhost:1004/public/";
+	public $backURL = "http://localhost:9999/public/";
 	public $document_root = '';
 	public $path_thumbnail = "https://anime.vip-streaming.com/";
 	public $path_slide = "";
@@ -90,9 +90,11 @@ class Anime extends BaseController
 	public function anime($id, $Name, $index = 0, $epname = '')
 	{
 		$setting = $this->AnimeModel->get_setting($this->anbranch);
+		$seo = $this->AnimeModel->get_seo($this->anbranch);
 		$series = $this->AnimeModel->get_ep_series($id);
 		$videinterest = $this->AnimeModel->get_video_interest($this->anbranch);
 		$adstop = $this->AnimeModel->get_adstop($this->anbranch);
+		$adsmiddle = $this->AnimeModel->get_adsmiddle($this->anbranch);
 		$adsbottom = $this->AnimeModel->get_adsbottom($this->anbranch);
 		$list_popular = $this->AnimeModel->get_list_popular($this->anbranch);
 
@@ -104,7 +106,34 @@ class Anime extends BaseController
 		$list_category = $this->AnimeModel->get_category($this->anbranch);
 		$date = get_date($series['movie_create']);
 
-		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
+		if (substr($series['movie_picture'], 0, 4) == 'http') {
+			$movie_picture = $series['movie_picture'];
+		} else {
+			$movie_picture = $this->path_thumbnail . $series['movie_picture'];
+		}
+		$setting['setting_img'] = $movie_picture;
+		
+		if(!empty($seo)){
+			if(!empty($seo['seo_title'])){
+				$title = $seo['seo_title'];
+				$name_videos = $series['movie_thname'];
+				$title_name = $setting['setting_title'];
+				$title_web = str_replace(
+								"{movie_title} - {title_web}", 
+								$name_videos . " - " . $title_name, 
+								$title
+							);
+				$setting['setting_title'] = $title_web;
+			}
+			
+			if(!empty($seo['seo_description'])){
+				$description = $seo['seo_description'];
+				$description_movie = $series['movie_des'];
+				$setting['setting_description'] = str_replace("{movie_description}", $description_movie, $description);
+			}
+			
+		}
+
 
 		$chk_act = [
 			'home' => '',
@@ -129,6 +158,7 @@ class Anime extends BaseController
 			'path_thumbnail' => $this->path_thumbnail,
 			'videodata' => $series,
 			'adstop' => $adstop,
+			'adsmiddle' => $adsmiddle,
 			'adsbottom' => $adsbottom,
 			'path_ads' => $this->path_ads,
 			'DateEng' => $date['DateEng'],

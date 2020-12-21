@@ -23,8 +23,7 @@
 
     <title><?php echo $setting['setting_title']; ?></title>
 
-    <!-- <link rel="icon" type="image/png" href="<?= $path_setting . $setting['setting_icon'] ?>" /> -->
-    <link rel="icon" type="image/png" href="<?= $backURL . 'assets/img/logo.png' ?>" />
+    <link rel="icon" type="image/png" href="<?= $path_setting . $setting['setting_icon'] ?>" />
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -53,8 +52,7 @@
         <div class="logo-bar">
             <div class="container">
                 <a href="<?php echo base_url() ?>">
-                 <!-- <img class="logo" src="<?= $path_setting . $setting['setting_logo'] ?> "> -->
-                 <img class="logo" src="<?= $backURL . 'assets/img/logo.png' ?>">
+                 <img class="logo" src="<?= $path_setting . $setting['setting_logo'] ?> ">
                 </a>
             </div>
         </div>

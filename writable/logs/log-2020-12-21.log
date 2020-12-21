@@ -1,0 +1,14 @@
+CRITICAL - 2020-12-21 00:29:12 --> Undefined property: App\Controllers\Anime::$VideoModel
+#0 C:\xampp\htdocs\movie\SPXMovie\app\Controllers\Anime.php(96): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 96, Array)
+#1 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(910): App\Controllers\Anime->anime('257', 'Kuroko-no-Baske...', '0', 'Kuroko-no-Baske...')
+#2 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Anime))
+#3 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\movie\SPXMovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-12-21 00:37:23 --> Undefined property: App\Controllers\Movie::$AnimeModel
+#0 C:\xampp\htdocs\movie\SPXMovie\app\Controllers\Movie.php(102): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 102, Array)
+#1 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('9875', 'Tenet-%282020%2...')
+#2 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#3 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\movie\SPXMovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

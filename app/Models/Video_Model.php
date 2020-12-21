@@ -381,9 +381,16 @@ class Video_Model extends Model
         return $query->getResultArray();
     }
 
-    public function get_adsbottom($branch_id)
+    public function get_adsmiddle($branch_id)
     {
         $sql = "SELECT * FROM  `$this->ads` WHERE branch_id = '$branch_id' AND ads_position = '2' ";
+        $query = $this->db->query($sql);
+        return $query->getResultArray();
+    }
+
+    public function get_adsbottom($branch_id)
+    {
+        $sql = "SELECT * FROM  `$this->ads` WHERE branch_id = '$branch_id' AND ads_position = '3' ";
         $query = $this->db->query($sql);
         return $query->getResultArray();
     }

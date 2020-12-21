@@ -31,7 +31,7 @@
                         }
             ?>
                 <a href="onClickAds(<?= $ads['ads_id']; ?>, <?= $branch ?>)" href="<?=$ads['ads_url']?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
-                    <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
+                    <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>" class="img-banners">
                 </a>
             <?
                     }
@@ -43,8 +43,8 @@
             <div class="content">
                 <div class="content-title">
                     <div class="title">อนิเมะอัพเดทล่าสุด</div>
-                    <a href="<?php echo base_url().'/anime' ?>" class="filter <? if($order == 'all') echo 'active'; ?>">ALL MOVIE</a>
-                    <a href="<?php echo base_url().'/anime?order=top-view' ?>" class="filter <? if($order == 'top-view') echo 'active'; ?>">TOP MOVIE</a>
+                    <a href="<?php echo base_url().'/anime' ?>" class="filter <? if($order == 'all') echo 'active'; ?>">ALL ANIME</a>
+                    <a href="<?php echo base_url().'/anime?order=top-view' ?>" class="filter <? if($order == 'top-view') echo 'active'; ?>">TOP ANIME</a>
                 </div>
                 <div class="content-data">
                     <div class="content-list">

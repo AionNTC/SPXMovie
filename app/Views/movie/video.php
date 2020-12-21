@@ -10,7 +10,7 @@
                     }
         ?>
             <a href="onClickAds(<?= $ads['ads_id']; ?>, <?= $branch ?>)" href="<?=$ads['ads_url']?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
-                <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
+                <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>" class="img-banners">
             </a>
         <?
                 }
@@ -73,8 +73,8 @@
 
                 <div id="ads">
                     <?
-                        if( !empty($adstop) ){
-                            foreach($adstop as $ads){
+                        if( !empty($adsmiddle) ){
+                            foreach($adsmiddle as $ads){
                                 if(substr($ads['ads_picture'], 0, 4) == 'http'){
                                     $ads_picture = $ads['ads_picture'];
                                 }else{
@@ -82,7 +82,7 @@
                                 }
                     ?>
                         <a href="onClickAds(<?= $ads['ads_id']; ?>, <?= $branch ?>)" href="<?=$ads['ads_url']?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
-                            <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
+                            <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>" class="img-banners">
                         </a>
                     <?
                             }
@@ -137,8 +137,8 @@
 
                 <div id="ads">
                     <?
-                        if( !empty($adstop) ){
-                            foreach($adstop as $ads){
+                        if( !empty($adsbottom) ){
+                            foreach($adsbottom as $ads){
                                 if(substr($ads['ads_picture'], 0, 4) == 'http'){
                                     $ads_picture = $ads['ads_picture'];
                                 }else{
@@ -146,7 +146,7 @@
                                 }
                     ?>
                         <a href="onClickAds(<?= $ads['ads_id']; ?>, <?= $branch ?>)" href="<?=$ads['ads_url']?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
-                            <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>">
+                            <img src="<?=$ads_picture?>" alt="<?=$ads['ads_name']?>" title="<?=$ads['ads_name']?>" class="img-banners">
                         </a>
                     <?
                             }
@@ -161,6 +161,9 @@
                         $cateneme = '';
                         $numItems = count($videodata['cate_data']);
                         $i = 0;
+                        if ($numItems == 0) {
+                            echo '-';
+                        } else {
                         foreach ($videodata['cate_data'] as $key => $val) {
                     ?>
                         <a style="cursor:pointer;" onclick="goCate('<?= $val['category_id'] ?>', '<?= $val['category_name'] ?>')" alt="<?= $val['category_name'] ?>"><? echo $val['category_name'] ?></a>
@@ -171,6 +174,7 @@
                     <?
                             }
                         }
+                    }
                     ?>  
                     </span>
                 </div>

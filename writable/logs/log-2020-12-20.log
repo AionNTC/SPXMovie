@@ -1,0 +1,30 @@
+CRITICAL - 2020-12-20 23:20:16 --> Table 'variety.setting' doesn't exist
+#0 C:\xampp\htdocs\movie\SPXMovie\system\Database\MySQLi\Connection.php(330): mysqli->query('SELECT * FROM `...')
+#1 C:\xampp\htdocs\movie\SPXMovie\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM `...')
+#2 C:\xampp\htdocs\movie\SPXMovie\system\Database\BaseConnection.php(666): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM `...')
+#3 C:\xampp\htdocs\movie\SPXMovie\app\Models\Video_Model.php(418): CodeIgniter\Database\BaseConnection->query('SELECT * FROM `...')
+#4 C:\xampp\htdocs\movie\SPXMovie\app\Controllers\Movie.php(51): App\Models\Video_Model->get_setting(1)
+#5 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#6 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#7 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\movie\SPXMovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-12-20 23:20:16 --> Table 'variety.setting' doesn't exist
+#0 C:\xampp\htdocs\movie\SPXMovie\system\Database\MySQLi\Connection.php(330): mysqli->query('SELECT * FROM `...')
+#1 C:\xampp\htdocs\movie\SPXMovie\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM `...')
+#2 C:\xampp\htdocs\movie\SPXMovie\system\Database\BaseConnection.php(666): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM `...')
+#3 C:\xampp\htdocs\movie\SPXMovie\app\Models\Video_Model.php(418): CodeIgniter\Database\BaseConnection->query('SELECT * FROM `...')
+#4 C:\xampp\htdocs\movie\SPXMovie\app\Controllers\Movie.php(51): App\Models\Video_Model->get_setting(1)
+#5 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(910): App\Controllers\Movie->index()
+#6 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#7 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\movie\SPXMovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2020-12-20 23:25:40 --> syntax error, unexpected '}'
+#0 C:\xampp\htdocs\movie\SPXMovie\system\Common.php(1071): CodeIgniter\View\View->render('movie/video.php', Array, true)
+#1 C:\xampp\htdocs\movie\SPXMovie\app\Controllers\Movie.php(146): view('movie/video.php', Array)
+#2 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(910): App\Controllers\Movie->video('20033', 'Rogue-%282020%2...')
+#3 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Movie))
+#4 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\movie\SPXMovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}

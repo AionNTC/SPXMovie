@@ -12,7 +12,7 @@ class Movie extends BaseController
 	public $path_ads = "";
 	public $mvbranch = 1;
 	public $anbranch = 2;
-	public $backURL = "http://localhost:1004/public/";
+	public $backURL = "http://localhost:9999/public/";
 	public $document_root = '';
 	public $path_thumbnail = "https://anime.vip-streaming.com/";
 	public $path_slide = "";
@@ -36,7 +36,7 @@ class Movie extends BaseController
 		$this->document_root = $this->config->docURL;
 
 		// Directory
-		$this->path_ads = $this->backURL . 'public/banners/';
+		$this->path_ads = $this->backURL . 'banners/';
 		$this->path_setting = $this->backURL . 'setting/';
 		$this->path_slide = $this->backURL . 'img_slide/';
 		
@@ -99,16 +99,44 @@ class Movie extends BaseController
 	public function video($id, $Name)
 	{
 		$setting = $this->VideoModel->get_setting($this->mvbranch);
+		$seo = $this->VideoModel->get_seo($this->mvbranch);
 		$videodata = $this->VideoModel->get_id_video($id);
 		$videinterest = $this->VideoModel->get_video_interest($this->mvbranch);
 		$adstop = $this->VideoModel->get_adstop($this->mvbranch);
+		$adsmiddle = $this->VideoModel->get_adsmiddle($this->mvbranch);
 		$adsbottom = $this->VideoModel->get_adsbottom($this->mvbranch);
 		$list_popular = $this->VideoModel->get_list_popular($this->mvbranch);
 
 		$list_category = $this->VideoModel->get_category($this->mvbranch);
 		$date = get_date($videodata['movie_create']);
 
-		$setting['setting_img'] = $this->path_setting . $setting['setting_logo'];
+		if (substr($videodata['movie_picture'], 0, 4) == 'http') {
+			$movie_picture = $videodata['movie_picture'];
+		} else {
+			$movie_picture = $this->path_thumbnail . $videodata['movie_picture'];
+		}
+		$setting['setting_img'] = $movie_picture;
+
+		if(!empty($seo)){
+			if(!empty($seo['seo_title'])){
+				$title = $seo['seo_title'];
+				$name_videos = $videodata['movie_thname'];
+				$title_name = $setting['setting_title'];
+				$title_web = str_replace(
+								"{movie_title} - {title_web}", 
+								$name_videos . " - " . $title_name, 
+								$title
+							);
+				$setting['setting_title'] = $title_web;
+			}
+			
+			if(!empty($seo['seo_description'])){
+				$description = $seo['seo_description'];
+				$description_movie = $videodata['movie_des'];
+				$setting['setting_description'] = str_replace("{movie_description}", $description_movie, $description);
+			}
+			
+		}
 
 		$chk_act = [
 			'home' => 'active',
@@ -135,6 +163,7 @@ class Movie extends BaseController
 			'videodata' => $videodata,
 			'videinterest' => $videinterest,
 			'adstop' => $adstop,
+			'adsmiddle' => $adsmiddle,
 			'adsbottom' => $adsbottom,
 			'path_ads' => $this->path_ads,
 			'DateEng' => $date['DateEng'],

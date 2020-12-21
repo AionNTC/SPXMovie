@@ -426,11 +426,12 @@ class Anime extends BaseController
 		$movie_id =  $_POST['movie_id'];
 		$movie_name = $_POST['movie_name'];
 		$movie_ep_name = $_POST['movie_ep_name'];
+		$reason = $_POST['reason'];
 		$datetime = date('Y-m-d H:i:s');
 
 
 
-		$result = $this->AnimeModel->save_reports($this->anbranch,$movie_id,$movie_name,$movie_ep_name,$datetime);
+		$result = $this->AnimeModel->save_reports($this->anbranch,$movie_id,$movie_name,$movie_ep_name,$datetime,$reason);
 
 
 	}

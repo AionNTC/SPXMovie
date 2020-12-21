@@ -771,7 +771,7 @@ class Anime_Model extends Model
         }
     }
 
-    public function save_reports($branch,$movie_id,$movie_name,$movie_ep_name,$datetime)
+    public function save_reports($branch,$movie_id,$movie_name,$movie_ep_name,$datetime,$reason)
     {
 
         $bd =  $this->db->table($this->report_movie);
@@ -782,6 +782,7 @@ class Anime_Model extends Model
             'branch_id' => $branch,
             'movie_name' =>  $movie_name,
             'ep_name' =>  $movie_ep_name,
+            'reason' =>  $reason,
             'moviereport_datetime' =>  $datetime,
         ];
 

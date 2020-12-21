@@ -257,6 +257,7 @@
 
 <script>
   function get_Report() {
+    var request = prompt('แจ้งหนังเสืย');
     var movie_id = '<?= $videodata['movie_id'] ?>';
     var movie_name = '<?= $videodata['movie_thname'] ?>';
     var movie_ep_name = '';
@@ -264,18 +265,21 @@
         movie_ep_name = '<?= $videodata['ep_data'][$index]['NameEp'] ?>';
     <?php } ?>
 
-    $.ajax({
-      url: "<?= base_url('anime/saveReport') ?>",
-      data: {
-        movie_id: movie_id,
-        movie_name: movie_name,
-        movie_ep_name: movie_ep_name
-      },
-      type: 'POST',
-      async: false,
-      success: function(data) {
-        alert('แจ้งเรียบร้อยจะดำเนินการโดยเร็ว');
-      }
-    });
+    if (request != '') {
+        $.ajax({
+        url: "<?= base_url('anime/saveReport') ?>",
+        data: {
+            movie_id: movie_id,
+            movie_name: movie_name,
+            movie_ep_name: movie_ep_name,
+            reason: request
+        },
+        type: 'POST',
+        async: false,
+        success: function(data) {
+            alert('แจ้งเรียบร้อยจะดำเนินการโดยเร็ว');
+        }
+        });
+    }
   }
 </script>

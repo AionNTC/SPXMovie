@@ -20,3 +20,17 @@ CRITICAL - 2020-12-21 03:45:12 --> syntax error, unexpected 'if' (T_IF)
 #4 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #5 E:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
 #6 {main}
+CRITICAL - 2020-12-21 04:21:14 --> Undefined index: reason
+#0 E:\xampp\htdocs\movie\spxmovie\app\Controllers\Anime.php(429): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'E:\\xampp\\htdocs...', 429, Array)
+#1 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Anime->saveReport()
+#2 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Anime))
+#3 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2020-12-21 04:21:15 --> Undefined index: reason
+#0 E:\xampp\htdocs\movie\spxmovie\app\Controllers\Anime.php(429): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'E:\\xampp\\htdocs...', 429, Array)
+#1 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Anime->saveReport()
+#2 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Anime))
+#3 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 E:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 {main}

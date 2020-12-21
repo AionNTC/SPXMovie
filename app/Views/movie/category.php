@@ -138,7 +138,7 @@
                                 <img style="max-width: 86px;" src="<? echo $movie_picture ?>">
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
-                                    <div class="thumbnail-rate"><? echo $score ?>/100</div>
+                                    <div class="thumbnail-rate"><? echo $score ?>/10</div>
                                     <? if(isset($sound)) { ?>
                                         <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
                                     <? } ?>

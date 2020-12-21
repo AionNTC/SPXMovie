@@ -362,8 +362,10 @@ header .menu-bar {
           padding: 14px;
           display: block; } }
       header .menu-bar .collapse.navbar-collapse ul li a {
-        padding: 25px 32px 24px;
         display: block; }
+        @media (max-width: 992px) {
+          header .menu-bar .collapse.navbar-collapse ul li a {
+            padding: 0; } }
       header .menu-bar .collapse.navbar-collapse ul li.active a {
         color: #ffffff; }
       @media (min-width: 992px) {
@@ -580,7 +582,7 @@ footer {
 
 #contract {
   margin-bottom: 20px;
-  min-height: calc(100vh - 361px); }
+  height: calc(100vh - 361px); }
   #contract .content-data {
     float: none;
     margin: 0 auto; }
@@ -647,7 +649,3 @@ footer {
       margin-bottom: 20px; } }
 
 /*# sourceMappingURL=app.css.map */
-
-.img-banners {
-  width: 100%;
-}

@@ -17,24 +17,39 @@
             }
         ?>
     </div>
-    <!-- <pre>
-        <?
-            $url_name = urlencode(str_replace(' ', '-', $videodata['movie_thname']));
-            if (substr($videodata['movie_picture'], 0, 4) == 'http') {
-                $movie_picture = $videodata['movie_picture'];
-            } else {
-                $movie_picture = $path_thumbnail . $videodata['movie_picture'];
+    <?
+        $url_name = urlencode(str_replace(' ', '-', $videodata['movie_thname']));
+        if (substr($videodata['movie_picture'], 0, 4) == 'http') {
+            $premovie_picture = $videodata['movie_picture'];
+        } else {
+            $premovie_picture = $path_thumbnail . $videodata['movie_picture'];
+        }
+        
+        if (!empty($videodata['movie_sound'])) {
+            $presound = $videodata['movie_sound'];
+            if (strtolower($videodata['movie_sound'])=='th' || 
+            strtolower($videodata['movie_sound'])=='thai' ||
+            strpos(strtolower($videodata['movie_sound']),'thai')==true ||
+            strtolower($videodata['movie_sound'])=='ts') {
+                $presound = 'พากษ์ไทย';
+            } else if (strtolower($videodata['movie_sound'])=='eng') {
+                $presound = 'SOUNDTRACK';
+            } else if (strtolower($videodata['movie_sound'])=='st' ||
+            strpos(strtolower($videodata['movie_sound']),'(t)')==true) {
+                $presound = 'ซับไทย';
             }
-        ?>
-    </pre> -->
+        }
+    ?>
     <div class="container">
         <div class="preview">
-            <div class="preview-image"><img src="<? echo $movie_picture ?>" alt="<? echo $videodata['movie_thname'] ?>"></div>
+            <div class="preview-image"><img src="<? echo $premovie_picture ?>" alt="<? echo $videodata['movie_thname'] ?>"></div>
             <div class="preview-data">
                 <div class="preview-title"><? echo $videodata['movie_thname'] ?></div>
                 <div class="preview-rate">MYMOVIELIST: <span><? echo $videodata['movie_ratescore'] ?>/10</span></div>
                 <div class="preview-view">VIEW: <span><? echo $videodata['movie_view'] ?></span></div>
-                <div class="preview-sound">SOUND: <span><? echo $videodata['movie_sound'] ?></span></div>
+                <? if(isset($presound)) { ?>
+                    <div class="preview-sound">SOUND: <span><? echo $presound ?></span></div>
+                <? } ?>
                 <div class="preview-shared">SHARE:
                     <a href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=<?= urlencode(base_url(uri_string())) ?>&display=popup&ref=plugin&src=share_button" target="_blank"><i class="fab fa-facebook-square"></i></a>
                     <a href="https://twitter.com/share?hashtags=ดูหนังออนไลน์,ดูหนังใหม่&text=<?= $url_name ?>" target="_blank"><i class="fab fa-twitter-square"></i></a>
@@ -221,7 +236,7 @@
                                 <img style="max-width: 86px;" src="<? echo $movie_picture ?>">
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
-                                    <div class="thumbnail-rate"><? echo $score ?>/100</div>
+                                    <div class="thumbnail-rate"><? echo $score ?>/10</div>
                                     <? if(isset($sound)) { ?>
                                         <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
                                     <? } ?>

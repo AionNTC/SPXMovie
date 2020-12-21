@@ -12,3 +12,11 @@ CRITICAL - 2020-12-21 00:37:23 --> Undefined property: App\Controllers\Movie::$A
 #3 C:\xampp\htdocs\movie\SPXMovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\xampp\htdocs\movie\SPXMovie\index.php(45): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2020-12-21 03:45:12 --> syntax error, unexpected 'if' (T_IF)
+#0 E:\xampp\htdocs\movie\spxmovie\system\Common.php(1071): CodeIgniter\View\View->render('anime/video.php', Array, true)
+#1 E:\xampp\htdocs\movie\spxmovie\app\Controllers\Anime.php(171): view('anime/video.php', Array)
+#2 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(910): App\Controllers\Anime->anime('256', 'Dr.Stone-%E0%B8...', '0', 'Dr.Stone-%E0%B8...')
+#3 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(398): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Anime))
+#4 E:\xampp\htdocs\movie\spxmovie\system\CodeIgniter.php(306): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 E:\xampp\htdocs\movie\spxmovie\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 {main}

@@ -20,7 +20,7 @@
     <div class="wrapper">
         <section class="container">
 
-            <marquee behavior="scroll" direction="left"  class="caption">WWW.SPXMOVIE.COM ยินดีต้อนรับ ขอต้อนรับเข้าสู่ แหล่งรวมอนิเมะที่มีคุณภาพ ระดับความชัดสูง ดูไได้ไหลลื่นไม่มีขีดสุด ขอให้ทุกท่านมีความสุขกับการรับชมภาพยนต์</marquee>
+            <marquee behavior="scroll" direction="left"  class="caption">WWW.SPXMOVIE.COM ยินดีต้อนรับ ขอต้อนรับเข้าสู่ แหล่งรวมอนิเมะที่มีคุณภาพ ระดับความชัดสูง ดูได้ไหลลื่นไม่มีขีดสุด ขอให้ทุกท่านมีความสุขกับการรับชมภาพยนต์</marquee>
             <?
                 if( !empty($adstop) ){
                     foreach($adstop as $ads){
@@ -176,7 +176,7 @@
                                 <img style="max-width: 86px;" src="<? echo $movie_picture ?>">
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
-                                    <div class="thumbnail-rate"><? echo $score ?>/100</div>
+                                    <div class="thumbnail-rate"><? echo $score ?>/10</div>
                                     <? if(isset($sound)) { ?>
                                         <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
                                     <? } ?>

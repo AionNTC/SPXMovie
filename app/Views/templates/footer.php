@@ -1,6 +1,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.min.js"></script>
+    <script src="<?= $document_root ?>assets/js/pagination.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 'auto',
@@ -88,8 +88,6 @@
                 };
                 $pagination.twbsPagination(defaultOpts);
             <? } ?>
-
-            
 
             $('#movie-formsearch').submit(function(e) {
                 goSearch();

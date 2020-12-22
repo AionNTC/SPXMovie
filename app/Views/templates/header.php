@@ -9,7 +9,7 @@
 
     <!-- TAG og facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?php echo base_url(); ?>" />
+    <meta property="og:url" content="<?php echo "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
     <meta property="og:title" content="<?php echo $setting['setting_title']; ?>" />
     <meta property="og:description" content="<?php echo  $setting['setting_description']; ?>" />
     <meta property="og:image" content="<?php echo $setting['setting_img']; ?>" />

@@ -93,7 +93,7 @@
                                                 strtolower($val['movie_sound'])=='ts') {
                                                     $sound = 'พากษ์ไทย';
                                                 } else if (strtolower($val['movie_sound'])=='eng') {
-                                                    $sound = 'SOUNDTRACK';
+                                                    $sound = 'Soundtrack';
                                                 } else if (strtolower($val['movie_sound'])=='st' ||
                                                 strpos(strtolower($val['movie_sound']),'(t)')==true) {
                                                     $sound = 'ซับไทย';
@@ -151,7 +151,7 @@
                                     strtolower($popular['movie_sound'])=='ts') {
                                         $popsound = 'พากษ์ไทย';
                                     } else if (strtolower($popular['movie_sound'])=='eng') {
-                                        $popsound = 'SOUNDTRACK';
+                                        $popsound = 'Soundtrack';
                                     } else if (strtolower($popular['movie_sound'])=='st' ||
                                     strpos(strtolower($popular['movie_sound']),'(t)')==true) {
                                         $popsound = 'ซับไทย';
@@ -181,7 +181,7 @@
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
                                     <div class="thumbnail-rate"><? echo $score ?>/10</div>
                                     <? if(isset($popsound) && $popsound != '') { ?>
-                                        <div class="thumbnail-description">SOUND: <? echo $popsound ?></div>
+                                        <div class="thumbnail-description">Sound: <? echo $popsound ?></div>
                                     <? } ?>
                                 </div>
                             </a>

@@ -4,6 +4,8 @@ body {
   margin: 0; }
   body img {
     max-width: 100%; }
+    body img.img-banners {
+      width: 100%; }
   body .wrapper {
     width: 100%;
     margin: 0 auto; }
@@ -282,7 +284,7 @@ body {
         float: right; }
   body .web-description {
     color: #ffffff;
-    padding: 220px 0; }
+    padding: 120px 0; }
     @media (max-width: 575px) {
       body .web-description {
         text-align: justify;
@@ -523,7 +525,7 @@ footer {
       #video .content-data {
         margin-bottom: 20px; } }
     #video .content-data iframe {
-      height: 527px; }
+      height: 395px; }
       @media (min-width: 280px) and (max-width: 425px) {
         #video .content-data iframe {
           height: 214px; } }
@@ -568,7 +570,7 @@ footer {
       #video .content-data .ep-link span.active, #video .content-data .ep-link:hover span {
         color: #007bff; }
     #video .content-data .cate-list {
-      margin-top: 15px;
+      margin: 15px 0;
       font-weight: bold;
       color: #b3b4b6; }
       #video .content-data .cate-list a, #video .content-data .cate-list span {

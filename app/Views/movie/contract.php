@@ -37,7 +37,7 @@
 
                                 <label for="ads_con_tel">เบอร์โทรศัพท์ :</label>
                                 <input id="ads_con_tel" type="text" class="form-control" required autocomplete="off" pattern="(^0([8|9|6])([0-9]{8}$))">
-                                <div class="invalid-feedback">กรุณากรอก เบอร์โทรศัพท์ 10หลัก เช่น " 0600000000 " และ ห้ามใช้ เครื่องหมาย  < > , ;</div>
+                                <div class="invalid-feedback">กรุณากรอก เบอร์โทรศัพท์ 10หลัก เช่น " 060xxxxxxx " และ ห้ามใช้ เครื่องหมาย  < > , ;</div>
 
                                 <br />
                                 <label id="ads_con_all_alt">**กรุณากรอกข้อมูลให้ครบทุกช่อง</label>

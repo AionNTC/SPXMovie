@@ -4,6 +4,9 @@ body {
     margin: 0;
     img {
         max-width: 100%;
+        &.img-banners {
+            width: 100%;
+        }
     }
     .wrapper {
         width: 100%;
@@ -397,7 +400,7 @@ body {
 
     .web-description {
         color: #ffffff;
-        padding: 220px 0;
+        padding: 120px 0;
 
         @media (max-width: 575px) {
             text-align: justify;
@@ -700,7 +703,7 @@ footer {
             margin-bottom: 20px;
         }
         iframe {
-            height: 527px;
+            height: 395px;
             @media (min-width: 280px) and (max-width: 425px) {
                 height: 214px;
             }
@@ -761,7 +764,7 @@ footer {
         }
 
         .cate-list {
-            margin-top: 15px;
+            margin: 15px 0;
             font-weight: bold;
             color: #b3b4b6;
             a, span {

@@ -8,7 +8,7 @@ class Anime extends BaseController
 	public $path_setting = "";
 	public $path_ads = "";
 	public $anbranch = 1;
-	public $backURL = "http://192.168.10.23:9999/public/";
+	public $backURL = "https://backend.spxmovie.com/public/";
 	public $document_root = '';
 	public $path_thumbnail = "https://anime.vip-streaming.com/";
 	public $path_slide = "";

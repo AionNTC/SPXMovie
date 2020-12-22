@@ -23,6 +23,9 @@ class App extends BaseConfig
 	*/
 	public $baseURL = 'http://localhost:1004/';
 	public $docURL = 'http://localhost:1004/public/';
+	
+	// public $baseURL = 'https://spxmovie.com/';
+	// public $docURL = 'https://spxmovie.com/public/';
 
 
 	/*

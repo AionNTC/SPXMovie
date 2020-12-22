@@ -143,18 +143,20 @@
                             $list_popular_slice = array_slice($list_popular, 0, 5, true);
                             foreach($list_popular_slice as $popular) {
                                 if (!empty($popular['movie_sound'])) {
-                                    $sound = $popular['movie_sound'];
+                                    $popsound = $popular['movie_sound'];
                                     if (strtolower($popular['movie_sound'])=='th' || 
                                     strtolower($popular['movie_sound'])=='thai' ||
                                     strpos(strtolower($popular['movie_sound']),'thai')==true ||
                                     strtolower($popular['movie_sound'])=='ts') {
-                                        $sound = 'พากษ์ไทย';
+                                        $popsound = 'พากษ์ไทย';
                                     } else if (strtolower($popular['movie_sound'])=='eng') {
-                                        $sound = 'SOUNDTRACK';
+                                        $popsound = 'SOUNDTRACK';
                                     } else if (strtolower($popular['movie_sound'])=='st' ||
                                     strpos(strtolower($popular['movie_sound']),'(t)')==true) {
-                                        $sound = 'ซับไทย';
+                                        $popsound = 'ซับไทย';
                                     }
+                                } else {
+                                    $popsound = '';
                                 }
 
                                 $score = $popular['movie_ratescore'] / 10;
@@ -177,8 +179,8 @@
                                 <div class="thumbnail-text">
                                     <div class="thumbnail-title"><? echo $popular['movie_thname'] ?></div>
                                     <div class="thumbnail-rate"><? echo $score ?>/10</div>
-                                    <? if(isset($sound)) { ?>
-                                        <div class="thumbnail-description">SOUND: <? echo $sound ?></div>
+                                    <? if(isset($popsound) && $popsound != '') { ?>
+                                        <div class="thumbnail-description">SOUND: <? echo $popsound ?></div>
                                     <? } ?>
                                 </div>
                             </a>

@@ -44,7 +44,6 @@
         function onClickAds(adsid, branch) {
 
             var backurl = '<?= $backURL ?>';
-            debugger;
             jQuery.ajax({
                 url: backurl + "ads/sid/<?= session_id() ?>/adsid/" + adsid + "/branch/" + branch,
                 async: true,

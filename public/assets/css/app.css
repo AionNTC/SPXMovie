@@ -525,10 +525,19 @@ footer {
       #video .content-data {
         margin-bottom: 20px; } }
     #video .content-data iframe {
-      height: 395px; }
+      height: 470px; }
       @media (min-width: 280px) and (max-width: 425px) {
         #video .content-data iframe {
           height: 214px; } }
+      @media (min-width: 426px) and (max-width: 574px) {
+        #video .content-data iframe {
+          height: 224px; } }
+      @media (min-width: 575px) and (max-width: 767px) {
+        #video .content-data iframe {
+          height: 300px; } }
+      @media (min-width: 768px) and (max-width: 1200px) {
+        #video .content-data iframe {
+          height: 395px; } }
     #video .content-data .title:not(:first-child) {
       margin-top: 20px; }
     #video .content-data .title.white {

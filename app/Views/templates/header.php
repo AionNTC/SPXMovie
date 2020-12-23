@@ -34,7 +34,7 @@
     <link href="<?= $document_root ?>assets/vendor/bootstrap/css/bootstrap.min.css?v=1" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?=$document_root?>assets/css/app.css?v=1.4" rel="stylesheet">
+    <link href="<?=$document_root?>assets/css/app.css?v=1.21" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <?php

@@ -34,7 +34,7 @@
     <link href="<?= $document_root ?>assets/vendor/bootstrap/css/bootstrap.min.css?v=1" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?=$document_root?>assets/css/app.css?v=1.21" rel="stylesheet">
+    <link href="<?=$document_root?>assets/css/app.css?v=1.3" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <?php
@@ -59,9 +59,9 @@
 
         <nav class="navbar navbar-expand-lg menu-bar">
             <div class="container">
-                <button class="navbar-toggler" type="button">
+                <!-- <button class="navbar-toggler" type="button">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> -->
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <ul>
                         <li class="<?= $chk_act['home'] ?>" ><a href="<?php echo base_url() ?>">หนัง</a></li>

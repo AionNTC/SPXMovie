@@ -456,51 +456,65 @@ header {
 
         .collapse.navbar-collapse {
             @media (max-width: 992px) {
-                display: block;
-                width: 100%;
-                position: absolute;
-                left: 0;
-                top: 100%;
-                background-color: #fd9b38;
-                z-index: 9;
-                transition: height 0.5s ease-in-out;
-                height: 0;
-                overflow: hidden;
-                &.active {
-                    height: 180px;
-                }
+                // display: block;
+                // width: 100%;
+                // position: absolute;
+                // left: 0;
+                // top: 100%;
+                // background-color: #fd9b38;
+                // z-index: 9;
+                // transition: height 0.5s ease-in-out;
+                // height: 0;
+                // overflow: hidden;
+                // &.active {
+                //     height: 180px;
+                // }
+                display: flex;
+                flex-basis: auto;
             }
             ul {
                 list-style-type: none;
                 margin: 0;
                 padding:  0 ;
                 
-                @media (max-width: 992px) {
-                    margin: 0 auto;
-                }
+                // @media (max-width: 992px) {
+                //     margin: 0 auto;
+                // }
                 
-                @media (min-width: 576px) {
-                    max-width: 540px;
-                }
+                // @media (min-width: 576px) {
+                //     max-width: 540px;
+                // }
                 
-                @media (min-width: 768px) {
-                    max-width: 720px;
-                }
+                // @media (min-width: 768px) {
+                //     max-width: 720px;
+                // }
                 
-                @media (min-width: 992px) {
-                    max-width: 960px;
-                }
+                // @media (min-width: 992px) {
+                //     max-width: 960px;
+                // }
                 li {
                     display: inline-block;
                     position: relative;
-                    @media (max-width: 992px) {                        
-                        padding: 14px;;
-                        display: block;
-                    }
+                    // @media (max-width: 992px) {                        
+                    //     padding: 14px;
+                    //     display: block;
+                    // }
                     a {
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: #3d3e42;
+                        text-decoration: none;
                         padding: 25px 32px 24px;
                         @media (max-width: 992px) {
-                            padding: 0;
+                            // padding: 0;
+                            padding: 15px 20px;
+                        }
+                        @media (max-width: 767px) {
+                            padding: 15px 10px;
+                        }
+                        @media (max-width: 425px) {
+                            font-size: 14px;
+                            padding: 20px 6px 19px;
                         }
                         display: block;
                     }
@@ -524,12 +538,6 @@ header {
                             }
                         }
                     }
-                    a {
-                        font-size: 20px;
-                        font-weight: bold;
-                        color: #3d3e42;
-                        text-decoration: none;
-                    }
                 }
             }
         }
@@ -540,6 +548,15 @@ header {
             text-align: right;
             @media (max-width: 992px) {
                 height: 60px;
+            }
+            @media (max-width: 767px) {
+                width: 40%;
+            }
+            @media (max-width: 575px) {
+                width: 30%;
+            }
+            @media (max-width: 425px) {
+                width: 25%;
             }
             .fa-search {
                 color: #fd9b38;
@@ -561,6 +578,11 @@ header {
                 z-index: 9;
                 &.active {
                     height: 50px;
+                }
+                @media (max-width: 575px) {
+                    width: 80vw;
+                    position: absolute;
+                    right: 0;
                 }
                 form {
                     background-color: #fd9b38;
